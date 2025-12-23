@@ -78,6 +78,58 @@
             color: var(--sage);
         }
 
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--charcoal);
+            transition: all 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 73px;
+            left: 0;
+            right: 0;
+            background: var(--warm-white);
+            border-bottom: 1px solid var(--soft-grey);
+            padding: 20px 40px;
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--sage);
+        }
+
         /* Article Header */
         .article-header {
             padding-top: 120px;
@@ -228,6 +280,10 @@
                 display: none;
             }
 
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
             .featured-image {
                 height: 400px;
             }
@@ -247,11 +303,26 @@
             <ul class="nav-links">
                 <li><a href="index.html#journal">Journal</a></li>
                 <li><a href="index.html#routines">Routines</a></li>
-                <li><a href="index.html#about">About</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="index.html#shop">Shop</a></li>
             </ul>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html#journal">Journal</a></li>
+            <li><a href="index.html#routines">Routines</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#shop">Shop</a></li>
+        </ul>
+    </div>
 
     <!-- Article Header -->
     <div class="article-header">
@@ -269,7 +340,7 @@
     <div class="article-content">
         <a href="index.html#journal" class="back-link">← Back to Journal</a>
 
-        <p>Sabrina Carpenter's lit-from-within glow isn't just stage makeup magic—it's the result of a carefully crafted skincare routine that creates the perfect canvas. That dewy, luminous complexion you see in every red carpet photo? It starts way before the makeup artist arrives.</p>
+        <p>Sabrina Carpenter's lit-from-within glow isn't just stage makeup magic-it's the result of a carefully crafted skincare routine that creates the perfect canvas. That dewy, luminous complexion you see in every red carpet photo? It starts way before the makeup artist arrives.</p>
 
         <p>The secret to achieving that signature glow is all about layering hydration, maintaining skin health, and using the right products in the right order. Let's break down exactly how to get there.</p>
 
@@ -277,15 +348,15 @@
 
         <p>Glowy skin starts from within. Before we even talk about products, let's talk about water. Not exciting, we know, but Sabrina's makeup artists consistently mention how well-hydrated her skin is. Aim for at least 8 glasses a day, and you'll see the difference in your skin's plumpness and radiance within a week.</p>
 
-        <p>But hydration isn't just about drinking water—it's about keeping that moisture locked into your skin. That's where your routine comes in.</p>
+        <p>But hydration isn't just about drinking water-it's about keeping that moisture locked into your skin. That's where your routine comes in.</p>
 
         <h2>The Morning Routine</h2>
 
         <h3>Step 1: Gentle Cleanse</h3>
-        <p>Start with a gentle, hydrating cleanser. You don't want to strip your skin in the morning—you're just removing any overnight oils and prepping for your products. Look for cream or gel cleansers with hydrating ingredients like hyaluronic acid or glycerin.</p>
+        <p>Start with a gentle, hydrating cleanser. You don't want to strip your skin in the morning-you're just removing any overnight oils and prepping for your products. Look for cream or gel cleansers with hydrating ingredients like hyaluronic acid or glycerin.</p>
 
         <h3>Step 2: Hydrating Toner</h3>
-        <p>This is where the glow really starts to build. A hydrating toner (think Korean beauty-style essence) adds that first layer of moisture. Pat it into your skin—don't rub. Patting helps with absorption and gives you better results.</p>
+        <p>This is where the glow really starts to build. A hydrating toner (think Korean beauty-style essence) adds that first layer of moisture. Pat it into your skin-don't rub. Patting helps with absorption and gives you better results.</p>
 
         <div class="tip-box">
             <h4>Pro Tip:</h4>
@@ -305,7 +376,7 @@
         <p>Don't skip this even if you have oily skin. A lightweight, gel-based moisturizer works for oilier skin types, while dry skin needs something richer. The key is finding that perfect balance where your skin feels plump but not greasy.</p>
 
         <h3>Step 5: SPF (Non-Negotiable)</h3>
-        <p>Glowy skin in 10 years requires sunscreen today. Find a formula that doesn't leave a white cast—mineral sunscreens with iron oxides or chemical sunscreens work great under makeup. SPF 30 minimum, SPF 50 is better.</p>
+        <p>Glowy skin in 10 years requires sunscreen today. Find a formula that doesn't leave a white cast-mineral sunscreens with iron oxides or chemical sunscreens work great under makeup. SPF 30 minimum, SPF 50 is better.</p>
 
         <h2>The Evening Routine</h2>
 
@@ -318,7 +389,7 @@
         <p>At night, you can introduce more active ingredients:</p>
 
         <ul>
-            <li><strong>Retinol or Retinal:</strong> Builds collagen, smooths texture, and creates that refined look. Start slow—2x per week—and build up.</li>
+            <li><strong>Retinol or Retinal:</strong> Builds collagen, smooths texture, and creates that refined look. Start slow-2x per week-and build up.</li>
             <li><strong>Peptides:</strong> Support skin firmness and that plump, healthy look.</li>
             <li><strong>Hydrating Essences:</strong> Layer on extra moisture at night when your skin is most receptive.</li>
         </ul>
@@ -342,12 +413,12 @@
 
         <div class="tip-box">
             <h4>The Reality Check:</h4>
-            <p>Remember: Sabrina has professional makeup artists using $60 illuminating primers and strategic highlighter placement. But with consistent skincare, you can create a base that glows even without makeup. That's the real goal—and it's absolutely achievable.</p>
+            <p>Remember: Sabrina has professional makeup artists using $60 illuminating primers and strategic highlighter placement. But with consistent skincare, you can create a base that glows even without makeup. That's the real goal-and it's absolutely achievable.</p>
         </div>
 
         <h2>The Bottom Line</h2>
 
-        <p>Glowy skin isn't about one miracle product—it's about creating a routine that consistently hydrates, protects, and nourishes your skin. Start with the basics (cleanser, moisturizer, SPF), then add layers as your skin adjusts. Within 4-6 weeks of consistency, you'll see real results.</p>
+        <p>Glowy skin isn't about one miracle product-it's about creating a routine that consistently hydrates, protects, and nourishes your skin. Start with the basics (cleanser, moisturizer, SPF), then add layers as your skin adjusts. Within 4-6 weeks of consistency, you'll see real results.</p>
 
         <p>Your skin won't transform overnight, but with patience and the right approach, that lit-from-within glow is completely within reach. And unlike Sabrina's stage lighting, yours will last all day.</p>
 
@@ -360,5 +431,19 @@
             <p>&copy; 2025 Lumora. All rights reserved. Made with love for beautiful skin.</p>
         </div>
     </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
