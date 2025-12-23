@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumora - Clean Beauty for the Next Generation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF8F5;
+            --taupe: #D4C5B9;
+            --sage: #B8C5B0;
+            --charcoal: #2C2C2C;
+            --warm-white: #FFFCF7;
+            --soft-grey: #E8E4DF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', sans-serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 252, 247, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--soft-grey);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--sage);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-grey) 100%);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 200;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .tagline {
+            font-size: 18px;
+            color: #666;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 48px;
+            background: var(--charcoal);
+            color: var(--warm-white);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease 0.4s backwards;
+            border: 2px solid var(--charcoal);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--charcoal);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Base */
+        section {
+            padding: 120px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        /* Journal Grid */
+        .journal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .article-card {
+            background: white;
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 400px;
+            background: var(--soft-grey);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        .article-content {
+            padding: 30px;
+        }
+
+        .article-category {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 15px;
+        }
+
+        .article-card h3 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .article-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--charcoal);
+            padding-bottom: 2px;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: var(--sage);
+            border-color: var(--sage);
+        }
+
+        /* Routines Section */
+        .routines {
+            background: var(--cream);
+        }
+
+        .routine-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .routine-card {
+            background: white;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .routine-card:hover {
+            transform: scale(1.02);
+        }
+
+        .routine-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .routine-card h3 {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .routine-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            background: white;
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .philosophy-content p {
+            font-size: 18px;
+            line-height: 2;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        /* Shop Coming Soon */
+        .shop-preview {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--taupe) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .shop-preview h2 {
+            color: white;
+        }
+
+        .email-signup {
+            display: flex;
+            max-width: 500px;
+            margin: 40px auto 0;
+            gap: 10px;
+        }
+
+        .email-signup input {
+            flex: 1;
+            padding: 16px 24px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .email-signup input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .email-signup button {
+            padding: 16px 32px;
+            background: white;
+            color: var(--charcoal);
+            border: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .email-signup button:hover {
+            background: var(--charcoal);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 60px 40px 40px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 2;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+                letter-spacing: 4px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-header h2 {
+                font-size: 36px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .journal-grid,
+            .routine-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">LUMORA</a>
+            <ul class="nav-links">
+                <li><a href="#journal">Journal</a></li>
+                <li><a href="#routines">Routines</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#shop">Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>LUMORA</h1>
+            <p class="tagline">Where Beauty Meets Knowledge</p>
+            <a href="#journal" class="cta-button">Explore</a>
+        </div>
+    </section>
+
+    <!-- Journal Section -->
+    <section id="journal">
+        <div class="section-header">
+            <h2>The Journal</h2>
+            <p>Beauty insights, skincare secrets, and the latest trends</p>
+        </div>
+
+        <div class="journal-grid">
+            <!-- Article 1 -->
+            <div class="article-card">
+                <div class="article-image">Image Placeholder</div>
+                <div class="article-content">
+                    <div class="article-category">Get The Look</div>
+                    <h3>Sabrina Carpenter's Glowy Skin: The Complete Guide</h3>
+                    <p>That lit-from-within glow isn't just for pop stars. Learn the exact routine to achieve Sabrina's signature dewy, luminous complexion—from prep to finish.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Article 2 -->
+            <div class="article-card">
+                <div class="article-image">Image Placeholder</div>
+                <div class="article-content">
+                    <div class="article-category">Ingredient Spotlight</div>
+                    <h3>Niacinamide: Your New Skincare BFF</h3>
+                    <p>Why everyone's talking about this powerhouse ingredient. We break down what it does, how to use it, and why it belongs in your routine—no science degree required.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Article 3 -->
+            <div class="article-card">
+                <div class="article-image">Image Placeholder</div>
+                <div class="article-content">
+                    <div class="article-category">Trends</div>
+                    <h3>Glass Skin vs. Cloud Skin: What's Your Vibe?</h3>
+                    <p>Korean beauty gave us glass skin, now cloud skin is everywhere. We're breaking down both trends and helping you figure out which aesthetic matches your style.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Article 4 -->
+            <div class="article-card">
+                <div class="article-image">Image Placeholder</div>
+                <div class="article-content">
+                    <div class="article-category">School Day Beauty</div>
+                    <h3>5-Minute Morning Routine That Actually Works</h3>
+                    <p>Running late? Same. This streamlined routine gets your skin glowing before first period—even when you hit snooze three times.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Article 5 -->
+            <div class="article-card">
+                <div class="article-image">Image Placeholder</div>
+                <div class="article-content">
+                    <div class="article-category">Get The Look</div>
+                    <h3>Olivia Rodrigo's Dewy "No-Makeup" Makeup</h3>
+                    <p>That effortless, fresh-faced look starts with skin. Here's how to prep your canvas for the perfect barely-there makeup moment.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Article 6 -->
+            <div class="article-card">
+                <div class="article-image">Image Placeholder</div>
+                <div class="article-content">
+                    <div class="article-category">Skincare 101</div>
+                    <h3>Understanding Your Skin Type (For Real This Time)</h3>
+                    <p>Oily? Dry? Combo? Sensitive? Let's figure out what your skin actually needs—and stop using products that don't work for you.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Routines Section -->
+    <section id="routines" class="routines">
+        <div class="section-header">
+            <h2>Routines</h2>
+            <p>Simple, effective skincare for every moment</p>
+        </div>
+
+        <div class="routine-cards">
+            <div class="routine-card">
+                <div class="routine-icon">☀️</div>
+                <h3>Morning Glow</h3>
+                <p>Start your day with a routine that protects, brightens, and preps your skin for whatever comes next.</p>
+            </div>
+
+            <div class="routine-card">
+                <div class="routine-icon">🌙</div>
+                <h3>Night Reset</h3>
+                <p>Wind down with a PM routine that repairs, hydrates, and lets your skin recover while you sleep.</p>
+            </div>
+
+            <div class="routine-card">
+                <div class="routine-icon">💧</div>
+                <h3>Hydration Station</h3>
+                <p>Dry skin? Dehydrated? This deeply nourishing routine brings back that plump, healthy glow.</p>
+            </div>
+
+            <div class="routine-card">
+                <div class="routine-icon">✨</div>
+                <h3>Pre-Makeup Prep</h3>
+                <p>The secret to flawless makeup? Prepped skin. This quick routine creates the perfect smooth canvas.</p>
+            </div>
+
+            <div class="routine-card">
+                <div class="routine-icon">🧖</div>
+                <h3>Weekend Self-Care</h3>
+                <p>Take your time with a luxe multi-step routine. Masks, treatments, and all the extras you deserve.</p>
+            </div>
+
+            <div class="routine-card">
+                <div class="routine-icon">💪</div>
+                <h3>Post-Workout Refresh</h3>
+                <p>Quick, effective steps to cleanse and refresh after the gym without stripping your skin.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="about" class="philosophy">
+        <div class="section-header">
+            <h2>Our Philosophy</h2>
+            <p>Beauty starts with knowledge</p>
+        </div>
+
+        <div class="philosophy-content">
+            <p>At Lumora, we believe skincare should be accessible, understandable, and effective. We're here to cut through the noise and give you real information about what works—and why.</p>
+
+            <p>Founded by a 13-year-old with a passion for clean beauty, Lumora is built on the idea that taking care of your skin doesn't have to be complicated or confusing. We're creating a space where you can learn, explore, and build confidence in your skincare journey.</p>
+
+            <p>This isn't about perfection. It's about feeling good in your skin, understanding what you're putting on it, and having fun with beauty along the way.</p>
+        </div>
+    </section>
+
+    <!-- Shop Coming Soon -->
+    <section id="shop" class="shop-preview">
+        <div class="section-header">
+            <h2>Coming Soon</h2>
+            <p style="color: rgba(255, 255, 255, 0.9);">We're working on something special</p>
+        </div>
+
+        <div class="email-signup">
+            <input type="email" placeholder="Your email">
+            <button>Notify Me</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>LUMORA</h3>
+                <p>Clean beauty for the next generation. Skincare knowledge, beauty trends, and expert advice—delivered with honesty and care.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#journal">The Journal</a></li>
+                    <li><a href="#routines">Routines</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="#">Skincare 101</a></li>
+                    <li><a href="#">Ingredients</a></li>
+                    <li><a href="#">Trends</a></li>
+                    <li><a href="#">Get The Look</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">TikTok</a></li>
+                    <li><a href="#">YouTube</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lumora. All rights reserved. Made with love for beautiful skin.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Email signup
+        document.querySelector('.email-signup button').addEventListener('click', function() {
+            const email = document.querySelector('.email-signup input').value;
+            if (email && email.includes('@')) {
+                alert('Thanks for signing up! We\'ll let you know when we launch.');
+                document.querySelector('.email-signup input').value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    </script>
+</body>
+</html>
