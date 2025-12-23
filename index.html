@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lumora - Clean Beauty for the Next Generation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -49,9 +52,10 @@
         }
 
         .logo {
-            font-size: 28px;
-            font-weight: 300;
-            letter-spacing: 3px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 4px;
             color: var(--charcoal);
             text-decoration: none;
         }
@@ -95,9 +99,10 @@
         }
 
         .hero h1 {
-            font-size: 72px;
-            font-weight: 200;
-            letter-spacing: 8px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 96px;
+            font-weight: 300;
+            letter-spacing: 12px;
             margin-bottom: 20px;
             animation: fadeInUp 1s ease;
         }
@@ -153,7 +158,8 @@
         }
 
         .section-header h2 {
-            font-size: 48px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
             font-weight: 300;
             letter-spacing: 4px;
             margin-bottom: 20px;
@@ -186,13 +192,18 @@
         .article-image {
             width: 100%;
             height: 400px;
-            background: var(--soft-grey);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            color: #999;
-            letter-spacing: 1px;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .article-card:hover .article-image img {
+            transform: scale(1.05);
         }
 
         .article-content {
@@ -253,10 +264,34 @@
             padding: 40px 30px;
             text-align: center;
             transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .routine-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.92);
+            z-index: 1;
+        }
+
+        .routine-card > * {
+            position: relative;
+            z-index: 2;
         }
 
         .routine-card:hover {
             transform: scale(1.02);
+        }
+
+        .routine-card:hover::before {
+            background: rgba(255, 255, 255, 0.88);
         }
 
         .routine-icon {
@@ -409,8 +444,8 @@
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 48px;
-                letter-spacing: 4px;
+                font-size: 56px;
+                letter-spacing: 6px;
             }
 
             .nav-links {
@@ -418,7 +453,7 @@
             }
 
             .section-header h2 {
-                font-size: 36px;
+                font-size: 40px;
             }
 
             .footer-content {
@@ -466,7 +501,9 @@
         <div class="journal-grid">
             <!-- Article 1 -->
             <div class="article-card">
-                <div class="article-image">Image Placeholder</div>
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80" alt="Glowy dewy skin">
+                </div>
                 <div class="article-content">
                     <div class="article-category">Get The Look</div>
                     <h3>Sabrina Carpenter's Glowy Skin: The Complete Guide</h3>
@@ -477,7 +514,9 @@
 
             <!-- Article 2 -->
             <div class="article-card">
-                <div class="article-image">Image Placeholder</div>
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80" alt="Skincare serum bottle">
+                </div>
                 <div class="article-content">
                     <div class="article-category">Ingredient Spotlight</div>
                     <h3>Niacinamide: Your New Skincare BFF</h3>
@@ -488,7 +527,9 @@
 
             <!-- Article 3 -->
             <div class="article-card">
-                <div class="article-image">Image Placeholder</div>
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=800&q=80" alt="Glass skin beauty close up">
+                </div>
                 <div class="article-content">
                     <div class="article-category">Trends</div>
                     <h3>Glass Skin vs. Cloud Skin: What's Your Vibe?</h3>
@@ -499,7 +540,9 @@
 
             <!-- Article 4 -->
             <div class="article-card">
-                <div class="article-image">Image Placeholder</div>
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80" alt="Morning skincare routine">
+                </div>
                 <div class="article-content">
                     <div class="article-category">School Day Beauty</div>
                     <h3>5-Minute Morning Routine That Actually Works</h3>
@@ -510,7 +553,9 @@
 
             <!-- Article 5 -->
             <div class="article-card">
-                <div class="article-image">Image Placeholder</div>
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800&q=80" alt="Natural dewy makeup">
+                </div>
                 <div class="article-content">
                     <div class="article-category">Get The Look</div>
                     <h3>Olivia Rodrigo's Dewy "No-Makeup" Makeup</h3>
@@ -521,7 +566,9 @@
 
             <!-- Article 6 -->
             <div class="article-card">
-                <div class="article-image">Image Placeholder</div>
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=800&q=80" alt="Skincare products flatlay">
+                </div>
                 <div class="article-content">
                     <div class="article-category">Skincare 101</div>
                     <h3>Understanding Your Skin Type (For Real This Time)</h3>
@@ -540,37 +587,37 @@
         </div>
 
         <div class="routine-cards">
-            <div class="routine-card">
+            <div class="routine-card" style="background-image: url('https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&q=80');">
                 <div class="routine-icon">☀️</div>
                 <h3>Morning Glow</h3>
                 <p>Start your day with a routine that protects, brightens, and preps your skin for whatever comes next.</p>
             </div>
 
-            <div class="routine-card">
+            <div class="routine-card" style="background-image: url('https://images.unsplash.com/photo-1554072675-66db59dba46f?w=600&q=80');">
                 <div class="routine-icon">🌙</div>
                 <h3>Night Reset</h3>
                 <p>Wind down with a PM routine that repairs, hydrates, and lets your skin recover while you sleep.</p>
             </div>
 
-            <div class="routine-card">
+            <div class="routine-card" style="background-image: url('https://images.unsplash.com/photo-1576426863848-c21f53c60b19?w=600&q=80');">
                 <div class="routine-icon">💧</div>
                 <h3>Hydration Station</h3>
                 <p>Dry skin? Dehydrated? This deeply nourishing routine brings back that plump, healthy glow.</p>
             </div>
 
-            <div class="routine-card">
+            <div class="routine-card" style="background-image: url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80');">
                 <div class="routine-icon">✨</div>
                 <h3>Pre-Makeup Prep</h3>
                 <p>The secret to flawless makeup? Prepped skin. This quick routine creates the perfect smooth canvas.</p>
             </div>
 
-            <div class="routine-card">
+            <div class="routine-card" style="background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80');">
                 <div class="routine-icon">🧖</div>
                 <h3>Weekend Self-Care</h3>
                 <p>Take your time with a luxe multi-step routine. Masks, treatments, and all the extras you deserve.</p>
             </div>
 
-            <div class="routine-card">
+            <div class="routine-card" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80');">
                 <div class="routine-icon">💪</div>
                 <h3>Post-Workout Refresh</h3>
                 <p>Quick, effective steps to cleanse and refresh after the gym without stripping your skin.</p>
