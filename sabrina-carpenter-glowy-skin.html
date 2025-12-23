@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabrina Carpenter's Glowy Skin: The Complete Guide - Lumora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF8F5;
+            --taupe: #D4C5B9;
+            --sage: #B8C5B0;
+            --charcoal: #2C2C2C;
+            --warm-white: #FFFCF7;
+            --soft-grey: #E8E4DF;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 252, 247, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--soft-grey);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--sage);
+        }
+
+        /* Article Header */
+        .article-header {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .category {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            margin: 0 auto 80px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px 120px;
+        }
+
+        .article-content p {
+            font-size: 18px;
+            line-height: 2;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        .article-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin: 60px 0 30px;
+            letter-spacing: 1px;
+        }
+
+        .article-content h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 40px 0 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 30px;
+            padding-left: 40px;
+        }
+
+        .article-content li {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .tip-box {
+            background: var(--cream);
+            padding: 30px;
+            border-left: 4px solid var(--sage);
+            margin: 40px 0;
+        }
+
+        .tip-box h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--sage);
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin: 40px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--charcoal);
+            padding-bottom: 2px;
+        }
+
+        .back-link:hover {
+            color: var(--sage);
+            border-color: var(--sage);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 60px 40px 40px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .featured-image {
+                height: 400px;
+            }
+
+            .article-content p,
+            .article-content li {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">LUMORA</a>
+            <ul class="nav-links">
+                <li><a href="index.html#journal">Journal</a></li>
+                <li><a href="index.html#routines">Routines</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <div class="article-header">
+        <div class="category">Get The Look</div>
+        <h1>Sabrina Carpenter's Glowy Skin: The Complete Guide</h1>
+        <div class="article-meta">5 min read • Published Dec 23, 2025</div>
+    </div>
+
+    <!-- Featured Image -->
+    <div class="featured-image">
+        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1200&q=80" alt="Glowy dewy skin close up">
+    </div>
+
+    <!-- Article Content -->
+    <div class="article-content">
+        <a href="index.html#journal" class="back-link">← Back to Journal</a>
+
+        <p>Sabrina Carpenter's lit-from-within glow isn't just stage makeup magic—it's the result of a carefully crafted skincare routine that creates the perfect canvas. That dewy, luminous complexion you see in every red carpet photo? It starts way before the makeup artist arrives.</p>
+
+        <p>The secret to achieving that signature glow is all about layering hydration, maintaining skin health, and using the right products in the right order. Let's break down exactly how to get there.</p>
+
+        <h2>The Foundation: Hydration is Everything</h2>
+
+        <p>Glowy skin starts from within. Before we even talk about products, let's talk about water. Not exciting, we know, but Sabrina's makeup artists consistently mention how well-hydrated her skin is. Aim for at least 8 glasses a day, and you'll see the difference in your skin's plumpness and radiance within a week.</p>
+
+        <p>But hydration isn't just about drinking water—it's about keeping that moisture locked into your skin. That's where your routine comes in.</p>
+
+        <h2>The Morning Routine</h2>
+
+        <h3>Step 1: Gentle Cleanse</h3>
+        <p>Start with a gentle, hydrating cleanser. You don't want to strip your skin in the morning—you're just removing any overnight oils and prepping for your products. Look for cream or gel cleansers with hydrating ingredients like hyaluronic acid or glycerin.</p>
+
+        <h3>Step 2: Hydrating Toner</h3>
+        <p>This is where the glow really starts to build. A hydrating toner (think Korean beauty-style essence) adds that first layer of moisture. Pat it into your skin—don't rub. Patting helps with absorption and gives you better results.</p>
+
+        <div class="tip-box">
+            <h4>Pro Tip:</h4>
+            <p>The "7-skin method" is popular in K-beauty for a reason. Apply your toner in 3-7 thin layers, patting each one in completely before adding the next. Your skin will literally drink it up, and you'll see immediate plumping.</p>
+        </div>
+
+        <h3>Step 3: Serum Time</h3>
+        <p>This is where you target specific concerns while building radiance. For glowy skin like Sabrina's, you want:</p>
+
+        <ul>
+            <li><strong>Vitamin C:</strong> Brightens and evens out skin tone. Use in the morning for that lit-from-within look.</li>
+            <li><strong>Hyaluronic Acid:</strong> Holds up to 1000x its weight in water. This is your glow ingredient.</li>
+            <li><strong>Niacinamide:</strong> Refines pores and strengthens your skin barrier, creating a smooth, even canvas.</li>
+        </ul>
+
+        <h3>Step 4: Moisturize</h3>
+        <p>Don't skip this even if you have oily skin. A lightweight, gel-based moisturizer works for oilier skin types, while dry skin needs something richer. The key is finding that perfect balance where your skin feels plump but not greasy.</p>
+
+        <h3>Step 5: SPF (Non-Negotiable)</h3>
+        <p>Glowy skin in 10 years requires sunscreen today. Find a formula that doesn't leave a white cast—mineral sunscreens with iron oxides or chemical sunscreens work great under makeup. SPF 30 minimum, SPF 50 is better.</p>
+
+        <h2>The Evening Routine</h2>
+
+        <p>Nighttime is when your skin repairs itself, so this routine is about supporting that natural process.</p>
+
+        <h3>Double Cleanse</h3>
+        <p>Start with an oil-based cleanser or cleansing balm to remove makeup and SPF. Follow with your regular cleanser. This ensures your skin is completely clean and ready to absorb your nighttime products.</p>
+
+        <h3>Treatment Products</h3>
+        <p>At night, you can introduce more active ingredients:</p>
+
+        <ul>
+            <li><strong>Retinol or Retinal:</strong> Builds collagen, smooths texture, and creates that refined look. Start slow—2x per week—and build up.</li>
+            <li><strong>Peptides:</strong> Support skin firmness and that plump, healthy look.</li>
+            <li><strong>Hydrating Essences:</strong> Layer on extra moisture at night when your skin is most receptive.</li>
+        </ul>
+
+        <h3>Rich Night Cream or Sleeping Mask</h3>
+        <p>Lock everything in with a richer moisturizer than you'd use during the day. Sleeping masks are great 2-3x per week for an extra boost of hydration.</p>
+
+        <h2>The Finishing Touch: Face Oil</h2>
+
+        <p>Here's the secret weapon for that dewy finish: a lightweight face oil. Before makeup, one drop of rosehip oil, squalane, or marula oil pressed into the skin gives you that subtle sheen that catches the light perfectly. Mix a tiny drop into your foundation for an even more luminous finish.</p>
+
+        <h2>Weekly Treatments</h2>
+
+        <p>Consistency is key, but these weekly boosters take your glow to the next level:</p>
+
+        <ul>
+            <li><strong>Gentle Exfoliation (2x/week):</strong> Lactic acid or PHA toners remove dead skin cells without irritation, revealing brighter skin underneath.</li>
+            <li><strong>Hydrating Masks (2-3x/week):</strong> Sheet masks or cream masks with hyaluronic acid provide an instant glow boost.</li>
+            <li><strong>Facial Massage (daily if possible):</strong> Increases circulation, reduces puffiness, and promotes lymphatic drainage. Even 2 minutes makes a difference.</li>
+        </ul>
+
+        <div class="tip-box">
+            <h4>The Reality Check:</h4>
+            <p>Remember: Sabrina has professional makeup artists using $60 illuminating primers and strategic highlighter placement. But with consistent skincare, you can create a base that glows even without makeup. That's the real goal—and it's absolutely achievable.</p>
+        </div>
+
+        <h2>The Bottom Line</h2>
+
+        <p>Glowy skin isn't about one miracle product—it's about creating a routine that consistently hydrates, protects, and nourishes your skin. Start with the basics (cleanser, moisturizer, SPF), then add layers as your skin adjusts. Within 4-6 weeks of consistency, you'll see real results.</p>
+
+        <p>Your skin won't transform overnight, but with patience and the right approach, that lit-from-within glow is completely within reach. And unlike Sabrina's stage lighting, yours will last all day.</p>
+
+        <a href="index.html#journal" class="back-link">← Back to Journal</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Lumora. All rights reserved. Made with love for beautiful skin.</p>
+        </div>
+    </footer>
+</body>
+</html>

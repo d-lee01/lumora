@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Night Reset Routine - Lumora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF8F5;
+            --taupe: #D4C5B9;
+            --sage: #B8C5B0;
+            --charcoal: #2C2C2C;
+            --warm-white: #FFFCF7;
+            --soft-grey: #E8E4DF;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 252, 247, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--soft-grey);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--sage);
+        }
+
+        .article-header {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .category {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        .featured-image {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            margin: 0 auto 80px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px 120px;
+        }
+
+        .article-content p {
+            font-size: 18px;
+            line-height: 2;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        .article-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin: 60px 0 30px;
+            letter-spacing: 1px;
+        }
+
+        .article-content h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 40px 0 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 30px;
+            padding-left: 40px;
+        }
+
+        .article-content li {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .tip-box {
+            background: var(--cream);
+            padding: 30px;
+            border-left: 4px solid var(--sage);
+            margin: 40px 0;
+        }
+
+        .tip-box h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--sage);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 40px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--charcoal);
+            padding-bottom: 2px;
+        }
+
+        .back-link:hover {
+            color: var(--sage);
+            border-color: var(--sage);
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 60px 40px 40px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 40px; }
+            .nav-links { display: none; }
+            .featured-image { height: 400px; }
+            .article-content p, .article-content li { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">LUMORA</a>
+            <ul class="nav-links">
+                <li><a href="index.html#journal">Journal</a></li>
+                <li><a href="index.html#routines">Routines</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-header">
+        <div class="category">Routines</div>
+        <h1>Night Reset Routine</h1>
+        <div class="article-meta">7 min read • Published Dec 23, 2025</div>
+    </div>
+
+    <div class="featured-image">
+        <img src="https://images.unsplash.com/photo-1554072675-66db59dba46f?w=1200&q=80" alt="Evening skincare routine">
+    </div>
+
+    <div class="article-content">
+        <a href="index.html#routines" class="back-link">← Back to Routines</a>
+
+        <p>Your nighttime routine is where the real magic happens. While you sleep, your skin shifts into repair mode—cell turnover accelerates, collagen production kicks into high gear, and your skin works hard to recover from daily damage. A solid PM routine supports this natural process and helps you wake up with glowing, healthy skin.</p>
+
+        <p>Unlike your morning routine (which is all about protection), your night routine is focused on repair, hydration, and treatment. This is when you use your most powerful active ingredients—retinol, acids, heavy moisturizers—because your skin can handle them better at night without the added stress of sun exposure.</p>
+
+        <h2>Why Your Night Routine Is Different</h2>
+
+        <p>At night, your skin's permeability increases, meaning it absorbs products more effectively. Your body temperature rises slightly, which helps active ingredients penetrate deeper. There's no UV exposure, so you can use photosensitive ingredients like retinol and AHAs without worrying about sun damage.</p>
+
+        <p>Plus, you're not rushing out the door. You have time to layer products, let them absorb, and really invest in your skin. This is self-care time—treat it like the ritual it is.</p>
+
+        <h2>The Complete Night Reset Routine</h2>
+
+        <h3>Step 1: First Cleanse - Makeup/SPF Removal (2 minutes)</h3>
+
+        <p>You need to remove the day before you can treat your skin. Start with an oil-based cleanser or micellar water to break down makeup, SPF, and sebum. These products are designed to dissolve oil-based impurities without stripping your skin.</p>
+
+        <p>Apply your oil cleanser to dry skin and massage for 30-60 seconds. Emulsify with water (it'll turn milky) and rinse thoroughly. If you're using micellar water, soak a cotton pad and swipe across your face—no rinsing needed, but follow with a second cleanse.</p>
+
+        <div class="tip-box">
+            <h4>The Double Cleanse Method</h4>
+            <p>Double cleansing is non-negotiable at night. The first cleanse removes surface buildup, the second actually cleans your skin. Skipping the first step means your second cleanser is just pushing dirt and makeup around—not actually deep cleaning.</p>
+        </div>
+
+        <h3>Step 2: Second Cleanse - Deep Clean (2 minutes)</h3>
+
+        <p>Now that surface impurities are gone, use a water-based cleanser to deeply clean your pores. Choose based on your skin type: gel for oily, cream for dry, foaming for combination. Massage for 60 seconds—this stimulates circulation and ensures a thorough clean.</p>
+
+        <p>Pay extra attention to your hairline, jawline, and around your nose (where buildup loves to hide). Rinse with lukewarm water and pat dry with a clean towel.</p>
+
+        <h3>Step 3: Treatment Toner or Acid Exfoliant (1-2 minutes)</h3>
+
+        <p>This is where things get interesting. At night, you can use treatment toners with acids (AHAs like glycolic acid or BHAs like salicylic acid) to exfoliate and resurface your skin. These remove dead skin cells, unclog pores, and improve texture.</p>
+
+        <p>If you're new to acids, start with 2-3 times per week. Apply with a cotton pad or your hands, avoiding the eye area. Wait 1-2 minutes before moving to the next step—acids need time to work at the right pH level.</p>
+
+        <p>On nights you're not using acids, use a hydrating toner to prep your skin for serums.</p>
+
+        <div class="tip-box">
+            <h4>Acid Exfoliation Dos and Don'ts</h4>
+            <p>Do: Start slowly, use SPF the next day, moisturize well. Don't: Use acids every night (especially if you're using retinol), combine multiple strong acids in one routine, or use acids on broken or irritated skin.</p>
+        </div>
+
+        <h3>Step 4: Targeted Treatment Serum (1-2 minutes)</h3>
+
+        <p>This is your power step. Choose a serum based on your main skin concern:</p>
+
+        <ul>
+            <li><strong>Anti-aging:</strong> Retinol or retinoids (vitamin A derivatives that boost collagen and cell turnover)</li>
+            <li><strong>Hyperpigmentation:</strong> Niacinamide, alpha arbutin, or tranexamic acid</li>
+            <li><strong>Hydration:</strong> Hyaluronic acid, glycerin, or squalane</li>
+            <li><strong>Acne:</strong> Benzoyl peroxide, salicylic acid, or niacinamide</li>
+            <li><strong>Redness/Sensitivity:</strong> Centella asiatica, azelaic acid, or green tea extract</li>
+        </ul>
+
+        <p>Apply 3-5 drops and press gently into your skin. If you're using retinol, start with once or twice a week and build up to nightly use as your skin adjusts.</p>
+
+        <h3>Step 5: Eye Cream (1 minute)</h3>
+
+        <p>Nighttime eye creams are typically richer than morning formulas. Look for ingredients like peptides (for firmness), retinol (for fine lines), and ceramides (for hydration). The skin around your eyes is delicate, so use a separate product—don't just rely on your face moisturizer.</p>
+
+        <p>Dot around the orbital bone and tap gently with your ring finger. Avoid pulling or tugging, which can cause premature wrinkles.</p>
+
+        <h3>Step 6: Moisturizer or Night Cream (2 minutes)</h3>
+
+        <p>Night moisturizers are heavier and more nourishing than day creams because you don't need to worry about greasiness or makeup application. This is when you seal in all the treatments you just applied and provide deep hydration while you sleep.</p>
+
+        <p>Choose a formula based on your needs:</p>
+
+        <ul>
+            <li><strong>Dry skin:</strong> Rich cream with shea butter, ceramides, and peptides</li>
+            <li><strong>Oily skin:</strong> Gel-cream with hyaluronic acid and niacinamide</li>
+            <li><strong>Combination skin:</strong> Lightweight lotion or emulsion</li>
+            <li><strong>Mature skin:</strong> Anti-aging night cream with retinol, peptides, and antioxidants</li>
+        </ul>
+
+        <p>Apply generously and massage upward in gentle circular motions. Don't forget your neck and décolletage—these areas age faster than your face and are often neglected.</p>
+
+        <h3>Step 7 (Optional): Facial Oil or Sleeping Mask (1 minute)</h3>
+
+        <p>If your skin is super dry or you want an extra boost, layer a facial oil or sleeping mask over your moisturizer. Oils like rosehip, marula, or squalane lock in moisture and provide additional nourishment.</p>
+
+        <p>Sleeping masks are occlusive—they create a barrier that prevents trans-epidermal water loss (basically, they trap hydration in your skin overnight). Use these 2-3 times a week for an intensive treatment.</p>
+
+        <h3>Step 8 (Optional): Lip Treatment (30 seconds)</h3>
+
+        <p>Your lips need love too. Apply a nourishing lip mask or thick balm before bed. Ingredients like lanolin, shea butter, and ceramides repair dry, chapped lips overnight.</p>
+
+        <h2>Product Recommendations by Concern</h2>
+
+        <h3>Anti-Aging Night Routine</h3>
+        <ul>
+            <li>Oil Cleanser: DHC Deep Cleansing Oil</li>
+            <li>Second Cleanser: CeraVe Hydrating Facial Cleanser</li>
+            <li>Acid Toner: Paula's Choice 8% AHA Gel (2-3x/week)</li>
+            <li>Treatment Serum: The Ordinary Retinol 0.5% in Squalane</li>
+            <li>Eye Cream: RoC Retinol Correxion Eye Cream</li>
+            <li>Moisturizer: Olay Regenerist Night Recovery Cream</li>
+        </ul>
+
+        <h3>Acne-Fighting Night Routine</h3>
+        <ul>
+            <li>Oil Cleanser: The Inkey List Oat Cleansing Balm</li>
+            <li>Second Cleanser: La Roche-Posay Effaclar Gel Cleanser</li>
+            <li>Acid Toner: Paula's Choice 2% BHA Liquid Exfoliant (every other night)</li>
+            <li>Treatment Serum: The Ordinary Niacinamide 10% + Zinc 1%</li>
+            <li>Eye Cream: CeraVe Eye Repair Cream</li>
+            <li>Moisturizer: Neutrogena Hydro Boost Gel-Cream</li>
+        </ul>
+
+        <h3>Hydration-Focused Night Routine</h3>
+        <ul>
+            <li>Oil Cleanser: Banila Co Clean It Zero Cleansing Balm</li>
+            <li>Second Cleanser: Cetaphil Gentle Skin Cleanser</li>
+            <li>Hydrating Toner: Hada Labo Gokujyun Premium Lotion</li>
+            <li>Treatment Serum: The Ordinary Hyaluronic Acid 2% + B5</li>
+            <li>Eye Cream: Kiehl's Creamy Eye Treatment with Avocado</li>
+            <li>Moisturizer: First Aid Beauty Ultra Repair Cream</li>
+            <li>Sleeping Mask: Laneige Water Sleeping Mask (2-3x/week)</li>
+        </ul>
+
+        <h2>Timing Your Night Routine</h2>
+
+        <p>Here's how long each step should take:</p>
+
+        <ul>
+            <li>First cleanse: 2 minutes</li>
+            <li>Second cleanse: 2 minutes</li>
+            <li>Toner/Exfoliant: 1-2 minutes (including wait time)</li>
+            <li>Treatment serum: 1-2 minutes (including absorption)</li>
+            <li>Eye cream: 1 minute</li>
+            <li>Moisturizer: 2 minutes</li>
+            <li>Optional extras: 1-2 minutes</li>
+        </ul>
+
+        <p><strong>Total time: 10-15 minutes</strong></p>
+
+        <p>Ideally, do your routine 30-60 minutes before bed so products have time to absorb. If you go straight to bed, you'll end up with product on your pillowcase instead of in your skin.</p>
+
+        <h2>Building Your Routine Over Time</h2>
+
+        <h3>Beginner Routine (Weeks 1-4)</h3>
+        <p>Start simple: Double cleanse, hydrating toner, moisturizer. Your skin needs to adjust before you introduce active ingredients. Focus on nailing the basics.</p>
+
+        <h3>Intermediate Routine (Months 2-3)</h3>
+        <p>Add one treatment serum—either retinol or an acid exfoliant, not both at first. Use it 2-3 times per week and monitor how your skin reacts. Increase frequency slowly.</p>
+
+        <h3>Advanced Routine (Months 4+)</h3>
+        <p>Now you can layer multiple treatments. Alternate nights: retinol one night, acid exfoliant the next. Add targeted serums, facial oils, and sleeping masks as needed.</p>
+
+        <h2>Common Night Routine Mistakes</h2>
+
+        <h3>Skipping the Double Cleanse</h3>
+        <p>One cleanse isn't enough to remove SPF and makeup. If you're breaking out or your skin feels congested, this is probably why.</p>
+
+        <h3>Over-Exfoliating</h3>
+        <p>Using acids every night or combining too many exfoliants damages your moisture barrier. Stick to 2-3 times per week unless you have very resilient skin.</p>
+
+        <h3>Not Waiting Between Steps</h3>
+        <p>Give acids and retinol 1-2 minutes to absorb before applying the next layer. Rushing causes pilling and reduces efficacy.</p>
+
+        <h3>Using Actives Every Night Immediately</h3>
+        <p>Your skin needs time to build tolerance, especially with retinol and strong acids. Start slow or you'll end up with irritation, redness, and peeling.</p>
+
+        <h3>Forgetting Your Neck</h3>
+        <p>Your neck ages faster than your face. Whatever you put on your face should also go on your neck and chest.</p>
+
+        <h2>Adjusting Your Routine by Season</h2>
+
+        <h3>Winter: Add More Moisture</h3>
+        <p>Cold weather and indoor heating dry out your skin. Switch to a richer moisturizer, add a facial oil, and use a sleeping mask more frequently.</p>
+
+        <h3>Summer: Lighten Your Routine</h3>
+        <p>Hot, humid weather means you can use lighter textures. Swap your heavy cream for a gel or lotion. You might also need to exfoliate more often if you're sweating more.</p>
+
+        <h3>Spring/Fall: Maintain Balance</h3>
+        <p>These transitional seasons are perfect for introducing new treatments. Your skin is less stressed, so it's a good time to add retinol or increase exfoliation frequency.</p>
+
+        <h2>When to See Results</h2>
+
+        <p>Skincare is a long game. Here's a realistic timeline:</p>
+
+        <ul>
+            <li><strong>Hydration:</strong> 1-2 weeks (skin feels plumper, looks dewier)</li>
+            <li><strong>Texture improvement:</strong> 4-6 weeks (smoother, more refined)</li>
+            <li><strong>Hyperpigmentation:</strong> 8-12 weeks (dark spots begin to fade)</li>
+            <li><strong>Fine lines:</strong> 12+ weeks (retinol takes time to build collagen)</li>
+            <li><strong>Acne:</strong> 6-8 weeks (breakouts reduce, skin clears)</li>
+        </ul>
+
+        <p>Consistency is everything. Stick with your routine for at least 8 weeks before deciding if something is working.</p>
+
+        <h2>The Bottom Line</h2>
+
+        <p>Your night routine is an investment in your future skin. This is when your skin does its deepest repair work, and a good routine supports that process. Cleanse thoroughly, treat strategically, and hydrate generously.</p>
+
+        <p>Make this routine a non-negotiable part of your evening—not a chore, but a moment to slow down and take care of yourself. Your skin (and your future self) will thank you.</p>
+
+        <p>Sleep well, glow better.</p>
+
+        <a href="index.html#routines" class="back-link">← Back to Routines</a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Lumora. All rights reserved. Made with love for beautiful skin.</p>
+        </div>
+    </footer>
+</body>
+</html>

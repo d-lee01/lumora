@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Glow Routine - Lumora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF8F5;
+            --taupe: #D4C5B9;
+            --sage: #B8C5B0;
+            --charcoal: #2C2C2C;
+            --warm-white: #FFFCF7;
+            --soft-grey: #E8E4DF;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 252, 247, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--soft-grey);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--sage);
+        }
+
+        .article-header {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .category {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        .featured-image {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            margin: 0 auto 80px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px 120px;
+        }
+
+        .article-content p {
+            font-size: 18px;
+            line-height: 2;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        .article-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin: 60px 0 30px;
+            letter-spacing: 1px;
+        }
+
+        .article-content h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 40px 0 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 30px;
+            padding-left: 40px;
+        }
+
+        .article-content li {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .tip-box {
+            background: var(--cream);
+            padding: 30px;
+            border-left: 4px solid var(--sage);
+            margin: 40px 0;
+        }
+
+        .tip-box h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--sage);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 40px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--charcoal);
+            padding-bottom: 2px;
+        }
+
+        .back-link:hover {
+            color: var(--sage);
+            border-color: var(--sage);
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 60px 40px 40px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 40px; }
+            .nav-links { display: none; }
+            .featured-image { height: 400px; }
+            .article-content p, .article-content li { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">LUMORA</a>
+            <ul class="nav-links">
+                <li><a href="index.html#journal">Journal</a></li>
+                <li><a href="index.html#routines">Routines</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-header">
+        <div class="category">Routines</div>
+        <h1>Morning Glow Routine</h1>
+        <div class="article-meta">6 min read • Published Dec 23, 2025</div>
+    </div>
+
+    <div class="featured-image">
+        <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=1200&q=80" alt="Morning skincare routine">
+    </div>
+
+    <div class="article-content">
+        <a href="index.html#routines" class="back-link">← Back to Routines</a>
+
+        <p>Your morning skincare routine sets the tone for your entire day. It's not just about looking good—it's about protecting your skin from environmental damage, maintaining hydration, and creating the perfect base for makeup (or your bare face, if that's more your vibe).</p>
+
+        <p>This routine is designed to be quick, effective, and realistic. We're talking 10 minutes max. No one has time for a 15-step routine before school or work, but you also can't skip skincare entirely and expect good results. This is the sweet spot.</p>
+
+        <h2>Why Morning Skincare Matters</h2>
+
+        <p>While you sleep, your skin goes into repair mode—shedding dead cells, producing oils, and working hard to recover from the day before. When you wake up, your face isn't exactly clean. There's sebum, sweat, leftover product from the night before, and environmental residue from your pillowcase.</p>
+
+        <p>Your morning routine cleanses away all that buildup, replenishes hydration, and—most importantly—protects your skin from UV damage, pollution, and free radicals. Think of it as armor for your face. You wouldn't leave the house without getting dressed, right? Same energy.</p>
+
+        <h2>The Complete Morning Glow Routine</h2>
+
+        <h3>Step 1: Gentle Cleanser (1-2 minutes)</h3>
+
+        <p>Start with a gentle, non-stripping cleanser. In the morning, you're not removing heavy makeup or sunscreen—you're just refreshing your skin. A creamy or gel cleanser works best. Avoid anything too harsh or foaming, especially if you have dry or sensitive skin.</p>
+
+        <p>Massage the cleanser onto damp skin for about 30 seconds, focusing on your T-zone (forehead, nose, chin) where oil tends to accumulate overnight. Rinse with lukewarm water—not hot, which can strip your skin and cause redness.</p>
+
+        <div class="tip-box">
+            <h4>Pro Tip: Double Cleanse in the Morning?</h4>
+            <p>You don't need to double cleanse in the AM unless you used a heavy sleeping mask or treatment the night before. One gentle cleanse is enough to prep your skin without over-stripping it.</p>
+        </div>
+
+        <h3>Step 2: Toner or Essence (30 seconds)</h3>
+
+        <p>Toner rebalances your skin's pH after cleansing and preps it to absorb the rest of your routine more effectively. Look for hydrating toners with ingredients like hyaluronic acid, glycerin, or centella asiatica—not astringent, alcohol-heavy formulas from the 2000s.</p>
+
+        <p>Apply with your hands (not a cotton pad, which wastes product) by patting it gently into your skin. This step should feel refreshing and slightly plumping, not tight or dry.</p>
+
+        <h3>Step 3: Vitamin C Serum (1 minute)</h3>
+
+        <p>This is your antioxidant shield. Vitamin C (L-ascorbic acid) protects your skin from free radical damage caused by UV exposure and pollution. It also brightens your complexion, fades dark spots, and boosts collagen production over time.</p>
+
+        <p>Apply 3-4 drops to your face and neck, gently pressing it in. Give it a minute to absorb before moving to the next step—vitamin C works best when it has time to penetrate.</p>
+
+        <div class="tip-box">
+            <h4>Vitamin C Alternatives</h4>
+            <p>If vitamin C irritates your skin, try niacinamide instead. It's gentler and still provides antioxidant protection plus brightening benefits. You can also use both—just apply vitamin C first and niacinamide in your moisturizer or as a separate serum.</p>
+        </div>
+
+        <h3>Step 4: Eye Cream (30 seconds)</h3>
+
+        <p>The skin around your eyes is thinner and more delicate than the rest of your face, so it needs special attention. Use a lightweight, hydrating eye cream with caffeine (to reduce puffiness) and hyaluronic acid (for hydration).</p>
+
+        <p>Dot a small amount around the orbital bone—not directly on your eyelid—and gently tap it in with your ring finger (it's the weakest finger, so you won't apply too much pressure). This helps with lymphatic drainage and reduces morning puffiness.</p>
+
+        <h3>Step 5: Moisturizer (1-2 minutes)</h3>
+
+        <p>Even if you have oily skin, you need moisturizer. Skipping it signals your skin to produce more oil, which makes the problem worse. Choose a formula based on your skin type:</p>
+
+        <ul>
+            <li><strong>Oily skin:</strong> Lightweight gel or gel-cream with hyaluronic acid</li>
+            <li><strong>Dry skin:</strong> Rich cream with ceramides and fatty acids</li>
+            <li><strong>Combination skin:</strong> Lotion or lightweight cream that balances hydration</li>
+            <li><strong>Sensitive skin:</strong> Fragrance-free, minimal ingredients, ceramide-rich</li>
+        </ul>
+
+        <p>Apply moisturizer to slightly damp skin for better absorption. Use upward motions and don't forget your neck—it shows age just as much as your face.</p>
+
+        <h3>Step 6: SPF (2 minutes)</h3>
+
+        <p>This is non-negotiable. I don't care if it's cloudy, if you're inside all day, or if you have dark skin (melanin provides some protection but not enough). UVA rays penetrate windows and cause aging, hyperpigmentation, and skin cancer. Wear. Sunscreen. Every. Single. Day.</p>
+
+        <p>Choose a broad-spectrum SPF 30-50. Mineral sunscreens (zinc oxide, titanium dioxide) are great for sensitive skin. Chemical sunscreens (avobenzone, octinoxate) tend to be more cosmetically elegant and work well under makeup.</p>
+
+        <p>Apply a nickel-sized amount to your face and neck. Wait 15 minutes before going outside or applying makeup to let it set properly. If you're wearing makeup, look for SPF-infused primers or foundations—but don't rely on makeup alone for sun protection. You need a dedicated SPF layer.</p>
+
+        <div class="tip-box">
+            <h4>Sunscreen Reapplication</h4>
+            <p>SPF needs to be reapplied every 2 hours if you're in direct sunlight. For daily wear, reapply at lunch if you're outdoors or use a powder SPF for touch-ups throughout the day. Setting spray with SPF is another easy option.</p>
+        </div>
+
+        <h3>Optional Step 7: Lip Balm with SPF (30 seconds)</h3>
+
+        <p>Your lips don't produce melanin and are extremely vulnerable to sun damage. Use a hydrating lip balm with at least SPF 15. This prevents dryness, chapping, and premature aging.</p>
+
+        <h2>Product Recommendations by Skin Type</h2>
+
+        <h3>For Oily/Acne-Prone Skin</h3>
+        <ul>
+            <li>Cleanser: CeraVe Foaming Facial Cleanser</li>
+            <li>Toner: Paula's Choice Pore-Reducing Toner</li>
+            <li>Serum: The Ordinary Vitamin C Suspension 23% + HA Spheres 2%</li>
+            <li>Moisturizer: Neutrogena Hydro Boost Water Gel</li>
+            <li>SPF: La Roche-Posay Anthelios Clear Skin Oil-Free Sunscreen SPF 60</li>
+        </ul>
+
+        <h3>For Dry/Sensitive Skin</h3>
+        <ul>
+            <li>Cleanser: La Roche-Posay Toleriane Hydrating Gentle Cleanser</li>
+            <li>Toner: Klairs Supple Preparation Unscented Toner</li>
+            <li>Serum: Timeless 20% Vitamin C + E Ferulic Acid Serum</li>
+            <li>Moisturizer: CeraVe Moisturizing Cream</li>
+            <li>SPF: EltaMD UV Clear Broad-Spectrum SPF 46</li>
+        </ul>
+
+        <h3>For Combination Skin</h3>
+        <ul>
+            <li>Cleanser: Cetaphil Daily Facial Cleanser</li>
+            <li>Toner: Thayers Alcohol-Free Rose Petal Witch Hazel Toner</li>
+            <li>Serum: Mad Hippie Vitamin C Serum</li>
+            <li>Moisturizer: Clinique Dramatically Different Moisturizing Gel</li>
+            <li>SPF: Supergoop Unseen Sunscreen SPF 40</li>
+        </ul>
+
+        <h2>Common Mistakes to Avoid</h2>
+
+        <h3>Skipping SPF on "Indoor Days"</h3>
+        <p>UVA rays penetrate windows. If there's daylight, there's UV exposure. Wear SPF every single day, no exceptions.</p>
+
+        <h3>Using Hot Water</h3>
+        <p>Hot water strips your skin's natural oils and damages your moisture barrier. Stick to lukewarm water for cleansing.</p>
+
+        <h3>Applying Products to Dry Skin</h3>
+        <p>Slightly damp skin absorbs products better. Pat your face with a towel after cleansing but leave it a bit moist before applying toner and serums.</p>
+
+        <h3>Rushing Through Your Routine</h3>
+        <p>Give each product 30-60 seconds to absorb before layering the next one. This ensures better penetration and prevents pilling (when products ball up on your skin).</p>
+
+        <h3>Using Too Much Product</h3>
+        <p>More product doesn't equal better results. A pea-sized amount of moisturizer and 3-4 drops of serum are usually enough. Overloading your skin can cause clogged pores and product buildup.</p>
+
+        <h2>Timing Your Routine</h2>
+
+        <p>Here's the breakdown for a full routine:</p>
+
+        <ul>
+            <li>Cleanser: 1-2 minutes</li>
+            <li>Toner: 30 seconds</li>
+            <li>Vitamin C serum: 1 minute (including absorption time)</li>
+            <li>Eye cream: 30 seconds</li>
+            <li>Moisturizer: 1-2 minutes</li>
+            <li>SPF: 2 minutes (including wait time)</li>
+        </ul>
+
+        <p><strong>Total time: 8-10 minutes</strong></p>
+
+        <p>If you're really pressed for time, you can condense this to 5 minutes by combining steps (like using a moisturizer with SPF) or skipping the toner and eye cream. But honestly, 10 minutes is worth it for healthy, protected skin.</p>
+
+        <h2>Adjusting for Your Skin's Needs</h2>
+
+        <h3>If Your Skin Is Dry in the Morning</h3>
+        <p>Add a hydrating serum (like hyaluronic acid) before your moisturizer, or switch to a richer moisturizer. You might also want to skip cleansing altogether and just rinse with water.</p>
+
+        <h3>If Your Skin Is Oily in the Morning</h3>
+        <p>Use a gentle foaming cleanser and a lightweight gel moisturizer. Consider adding a BHA toner (salicylic acid) to control oil production.</p>
+
+        <h3>If You're Breaking Out</h3>
+        <p>Keep your routine simple and avoid adding too many active ingredients in the morning. Stick to gentle cleansing, hydration, and SPF. Save treatments like retinol or benzoyl peroxide for nighttime.</p>
+
+        <h2>The Bottom Line</h2>
+
+        <p>A solid morning skincare routine doesn't have to be complicated or time-consuming. Cleanse, hydrate, protect—those are your three non-negotiables. Everything else is just optimization.</p>
+
+        <p>Give your skin what it needs in the morning, and it'll reward you with a healthy glow that lasts all day. Plus, you're setting yourself up for better skin in the long run. Future you will be grateful.</p>
+
+        <p>Now go glow.</p>
+
+        <a href="index.html#routines" class="back-link">← Back to Routines</a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Lumora. All rights reserved. Made with love for beautiful skin.</p>
+        </div>
+    </footer>
+</body>
+</html>

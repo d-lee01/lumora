@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niacinamide: Your New Skincare BFF - Lumora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF8F5;
+            --taupe: #D4C5B9;
+            --sage: #B8C5B0;
+            --charcoal: #2C2C2C;
+            --warm-white: #FFFCF7;
+            --soft-grey: #E8E4DF;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 252, 247, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--soft-grey);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--sage);
+        }
+
+        .article-header {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .category {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        .featured-image {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            margin: 0 auto 80px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px 120px;
+        }
+
+        .article-content p {
+            font-size: 18px;
+            line-height: 2;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        .article-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin: 60px 0 30px;
+            letter-spacing: 1px;
+        }
+
+        .article-content h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 40px 0 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 30px;
+            padding-left: 40px;
+        }
+
+        .article-content li {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .tip-box {
+            background: var(--cream);
+            padding: 30px;
+            border-left: 4px solid var(--sage);
+            margin: 40px 0;
+        }
+
+        .tip-box h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--sage);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 40px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--charcoal);
+            padding-bottom: 2px;
+        }
+
+        .back-link:hover {
+            color: var(--sage);
+            border-color: var(--sage);
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 60px 40px 40px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 40px; }
+            .nav-links { display: none; }
+            .featured-image { height: 400px; }
+            .article-content p, .article-content li { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">LUMORA</a>
+            <ul class="nav-links">
+                <li><a href="index.html#journal">Journal</a></li>
+                <li><a href="index.html#routines">Routines</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-header">
+        <div class="category">Ingredient Spotlight</div>
+        <h1>Niacinamide: Your New Skincare BFF</h1>
+        <div class="article-meta">4 min read • Published Dec 23, 2025</div>
+    </div>
+
+    <div class="featured-image">
+        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1200&q=80" alt="Skincare serum bottle">
+    </div>
+
+    <div class="article-content">
+        <a href="index.html#journal" class="back-link">← Back to Journal</a>
+
+        <p>If there's one ingredient that deserves a spot in basically everyone's routine, it's niacinamide. It's the skincare equivalent of that friend who gets along with everyone, never causes drama, and somehow makes everything better just by being there.</p>
+
+        <p>But what actually is it, and why is every dermatologist obsessed with it? Let's break it down—no chemistry degree required.</p>
+
+        <h2>What Is Niacinamide?</h2>
+
+        <p>Niacinamide is a form of vitamin B3. Your body needs it to function properly, and your skin absolutely loves it. Unlike some skincare ingredients that target one specific concern, niacinamide is like a Swiss Army knife—it does a little bit of everything, and it does it all well.</p>
+
+        <h2>What Does It Actually Do?</h2>
+
+        <h3>Strengthens Your Skin Barrier</h3>
+        <p>Your skin barrier is like a security system—when it's working properly, it keeps the good stuff in (hydration) and the bad stuff out (pollution, bacteria, irritants). Niacinamide helps build ceramides, which are essential for maintaining that barrier. The result? Healthier, more resilient skin that can handle whatever you throw at it.</p>
+
+        <h3>Reduces Redness and Inflammation</h3>
+        <p>If you struggle with redness, sensitivity, or conditions like rosacea, niacinamide is your friend. It has anti-inflammatory properties that calm irritated skin and reduce that flushed appearance. You'll notice more even-toned, calm skin over time.</p>
+
+        <h3>Minimizes Pores</h3>
+        <p>Here's the truth: you can't actually shrink pores (they don't have muscles). But you can make them appear smaller by keeping them clear and regulating oil production—which is exactly what niacinamide does. It helps balance sebum production, so oily skin produces less oil and pores look tighter and more refined.</p>
+
+        <h3>Fades Hyperpigmentation</h3>
+        <p>Dark spots, acne marks, uneven skin tone? Niacinamide helps with all of it by inhibiting the transfer of melanin to skin cells. Translation: it prevents new dark spots from forming and helps fade existing ones. It won't work overnight, but with consistent use (we're talking 8-12 weeks), you'll see real improvement.</p>
+
+        <h3>Fights Fine Lines</h3>
+        <p>Niacinamide stimulates collagen production, which helps improve skin elasticity and reduce the appearance of fine lines. It's not as dramatic as retinol, but it's gentler and plays well with other ingredients, making it perfect for layering.</p>
+
+        <h3>Controls Oil Without Drying</h3>
+        <p>This is the magic part: niacinamide regulates oil production without stripping your skin. Even if you have dry skin, it won't make you drier. If you have oily skin, it helps balance things out. It's truly universal.</p>
+
+        <h2>How to Use It</h2>
+
+        <h3>Morning or Night? Both!</h3>
+        <p>Unlike some ingredients (looking at you, retinol), niacinamide works great morning and night. Most people use it in the morning under SPF, but there's no wrong time to apply it.</p>
+
+        <h3>What Concentration?</h3>
+        <p>Studies show that 2-5% niacinamide is effective for most people. Some products go up to 10%, but more isn't always better—higher concentrations can sometimes cause irritation, especially if you have sensitive skin. Start with 5% and see how your skin responds.</p>
+
+        <h3>Where in Your Routine?</h3>
+        <p>Niacinamide typically comes in serum form. Apply it after cleansing and toning, but before heavier creams and oils. The rule of thumb: thinnest to thickest consistency.</p>
+
+        <ol>
+            <li>Cleanser</li>
+            <li>Toner</li>
+            <li>Niacinamide serum</li>
+            <li>Other serums (if using)</li>
+            <li>Moisturizer</li>
+            <li>SPF (morning only)</li>
+        </ol>
+
+        <div class="tip-box">
+            <h4>Can You Mix It With Other Ingredients?</h4>
+            <p>Yes! Niacinamide plays well with almost everything: hyaluronic acid, vitamin C, retinol, AHAs, BHAs—you name it. The old myth about not mixing niacinamide with vitamin C is outdated. Modern formulations are stable, and they actually work great together.</p>
+        </div>
+
+        <h2>What to Expect</h2>
+
+        <h3>Week 1-2: Subtle Changes</h3>
+        <p>Your skin might feel calmer and look slightly more even. Don't expect dramatic results yet—niacinamide is a marathon, not a sprint.</p>
+
+        <h3>Week 4-6: Noticeable Improvement</h3>
+        <p>This is when you'll start seeing real results. Pores look smaller, redness is reduced, and your overall skin tone is more even. Oil production should be more balanced.</p>
+
+        <h3>Week 8-12: Peak Results</h3>
+        <p>Hyperpigmentation fades, skin texture improves, and that healthy glow becomes your new normal. Consistency is key—stick with it.</p>
+
+        <h2>Who Should Use It?</h2>
+
+        <p>Short answer: everyone. Niacinamide is one of the most universally beneficial ingredients in skincare. It works for:</p>
+
+        <ul>
+            <li>Oily and acne-prone skin (regulates oil, reduces breakouts)</li>
+            <li>Dry and sensitive skin (strengthens barrier, reduces irritation)</li>
+            <li>Aging skin (boosts collagen, improves elasticity)</li>
+            <li>Hyperpigmented skin (fades dark spots, evens tone)</li>
+            <li>Combination skin (balances without over-drying)</li>
+        </ul>
+
+        <p>If you have rosacea or very sensitive skin, start with a lower concentration (2%) and patch test first. But for most people, niacinamide is incredibly gentle and well-tolerated.</p>
+
+        <h2>Choosing a Product</h2>
+
+        <p>Look for products where niacinamide is listed in the first 5 ingredients—this indicates a meaningful concentration. Avoid products with lots of potential irritants (high amounts of fragrance, essential oils, denatured alcohol) if you have sensitive skin.</p>
+
+        <p>Bonus: niacinamide is relatively affordable compared to other powerhouse ingredients. You don't need to spend $100 on a serum to see results.</p>
+
+        <h2>The Bottom Line</h2>
+
+        <p>Niacinamide isn't flashy, and it won't give you overnight results. But if you're looking for an ingredient that quietly, consistently improves almost every aspect of your skin health, this is it. It's the ultimate multitasker—and honestly, that makes it kind of perfect.</p>
+
+        <p>Add it to your routine and give it 8-12 weeks. Your skin will thank you.</p>
+
+        <a href="index.html#journal" class="back-link">← Back to Journal</a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Lumora. All rights reserved. Made with love for beautiful skin.</p>
+        </div>
+    </footer>
+</body>
+</html>

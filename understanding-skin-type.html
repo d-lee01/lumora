@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Your Skin Type (For Real This Time) - Lumora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF8F5;
+            --taupe: #D4C5B9;
+            --sage: #B8C5B0;
+            --charcoal: #2C2C2C;
+            --warm-white: #FFFCF7;
+            --soft-grey: #E8E4DF;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 252, 247, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--soft-grey);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--sage);
+        }
+
+        /* Article Header */
+        .article-header {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .category {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            margin: 0 auto 80px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px 120px;
+        }
+
+        .article-content p {
+            font-size: 18px;
+            line-height: 2;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        .article-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin: 60px 0 30px;
+            letter-spacing: 1px;
+        }
+
+        .article-content h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 40px 0 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 30px;
+            padding-left: 40px;
+        }
+
+        .article-content li {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .tip-box {
+            background: var(--cream);
+            padding: 30px;
+            border-left: 4px solid var(--sage);
+            margin: 40px 0;
+        }
+
+        .tip-box h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--sage);
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin: 40px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--charcoal);
+            padding-bottom: 2px;
+        }
+
+        .back-link:hover {
+            color: var(--sage);
+            border-color: var(--sage);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 60px 40px 40px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .featured-image {
+                height: 400px;
+            }
+
+            .article-content p,
+            .article-content li {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">LUMORA</a>
+            <ul class="nav-links">
+                <li><a href="index.html#journal">Journal</a></li>
+                <li><a href="index.html#routines">Routines</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <div class="article-header">
+        <div class="category">Skincare 101</div>
+        <h1>Understanding Your Skin Type (For Real This Time)</h1>
+        <div class="article-meta">8 min read • Published Dec 23, 2025</div>
+    </div>
+
+    <!-- Featured Image -->
+    <div class="featured-image">
+        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=1200&q=80" alt="Skincare products and healthy skin">
+    </div>
+
+    <!-- Article Content -->
+    <div class="article-content">
+        <a href="index.html#journal" class="back-link">← Back to Journal</a>
+
+        <p>Here's the thing about skin type—most people get it wrong. You might think you have oily skin when you actually have dehydrated skin overcompensating. You might think you're dry when you're just using the wrong products. And those quizzes that ask "does your skin feel tight after washing?"—they're basically useless if you're using a harsh cleanser.</p>
+
+        <p>Understanding your actual skin type is the foundation of everything in skincare. Get this right, and every product you buy will work better. Get it wrong, and you'll waste money on stuff that makes your skin worse. So let's figure this out for real this time.</p>
+
+        <h2>The Bare Skin Test</h2>
+
+        <p>Before we dive into skin types, you need to properly assess your skin. Here's how to do it accurately:</p>
+
+        <ol>
+            <li><strong>Cleanse your face:</strong> Use a gentle, pH-balanced cleanser—not your harsh acne wash, not just water. Actually gentle.</li>
+            <li><strong>Pat dry:</strong> Don't rub, don't leave it wet. Just pat with a clean towel.</li>
+            <li><strong>Don't apply anything:</strong> No products, no touching. Leave your skin completely bare.</li>
+            <li><strong>Wait 30 minutes:</strong> Do something else, let your skin return to its natural state.</li>
+            <li><strong>Observe in good lighting:</strong> Natural light is best. Look at your face in a mirror and take note of what you see and feel.</li>
+        </ol>
+
+        <p>What you notice during this test is your true skin type. Not what it does after you pile on products, not how it reacts to your current routine—your baseline skin.</p>
+
+        <h2>The Five Main Skin Types</h2>
+
+        <h3>1. Normal Skin (Yes, It's Real)</h3>
+
+        <p><strong>What it looks like:</strong> After your 30-minute bare skin test, your skin feels comfortable. Not tight, not oily, just... fine. Your pores are barely visible, your skin tone is even, and you have a natural, healthy glow. No dry patches, no oily T-zone.</p>
+
+        <p><strong>What it means:</strong> Your skin has balanced sebum production and moisture levels. You have a strong moisture barrier, good cell turnover, and your skin generally does its job without much help.</p>
+
+        <p><strong>The reality:</strong> This is rare, especially during your teens and early twenties when hormones are fluctuating. If you have normal skin, you hit the genetic lottery. Don't take it for granted—you still need to protect it.</p>
+
+        <h3>What Normal Skin Needs:</h3>
+
+        <ul>
+            <li><strong>Gentle cleanser:</strong> Nothing harsh, just something that removes dirt and sunscreen without stripping</li>
+            <li><strong>Lightweight moisturizer:</strong> Hydration without heaviness—gel-creams work great</li>
+            <li><strong>SPF 30-50 daily:</strong> Protecting your already-good skin should be a priority</li>
+            <li><strong>Antioxidant serum:</strong> Vitamin C in the morning for extra protection</li>
+            <li><strong>Gentle exfoliation:</strong> 2-3 times per week to maintain that smooth texture</li>
+        </ul>
+
+        <div class="tip-box">
+            <h4>The Normal Skin Trap:</h4>
+            <p>People with normal skin often overdo it because they think they can "handle" more actives. Your skin is balanced—keep it that way. Over-exfoliating or using too many strong actives can actually throw off your skin's natural equilibrium and create problems that weren't there before.</p>
+        </div>
+
+        <h3>2. Oily Skin</h3>
+
+        <p><strong>What it looks like:</strong> After 30 minutes bare, your skin looks shiny—especially your T-zone (forehead, nose, chin). Your pores are visibly enlarged. If you pressed a blotting paper to your face, it would show oil. Your makeup tends to slide off or look greasy by midday.</p>
+
+        <p><strong>What it means:</strong> Your sebaceous glands produce excess sebum. This could be genetic, hormonal, or environmental. The upside? Oily skin ages slower because all that natural oil protects your skin and keeps it plump.</p>
+
+        <p><strong>Important distinction:</strong> Oily skin produces excess oil all the time, not just in one area. If only your T-zone is oily, you're combination (we'll get to that).</p>
+
+        <h3>What Oily Skin Needs:</h3>
+
+        <ul>
+            <li><strong>Gel or foaming cleanser:</strong> Something that cuts through oil without stripping. Look for salicylic acid or tea tree oil.</li>
+            <li><strong>BHA exfoliant:</strong> Salicylic acid penetrates your pores and reduces oil production. Use 2-3 times per week.</li>
+            <li><strong>Lightweight, oil-free moisturizer:</strong> Yes, oily skin needs moisture. When your skin is dehydrated, it produces more oil to compensate.</li>
+            <li><strong>Niacinamide serum:</strong> This regulates sebum production over time. It's a game-changer for oily skin.</li>
+            <li><strong>Gel or water-based SPF:</strong> Skip thick, greasy sunscreens. Look for "oil-free" or "matte finish."</li>
+            <li><strong>Clay masks:</strong> Once or twice a week to absorb excess oil and deep clean pores.</li>
+        </ul>
+
+        <h3>3. Dry Skin</h3>
+
+        <p><strong>What it looks like:</strong> After 30 minutes bare, your skin feels tight and uncomfortable. You might see visible flaking or dry patches. Your skin looks dull, not glowy. Fine lines are more visible. Your pores are small or barely visible.</p>
+
+        <p><strong>What it means:</strong> Your skin doesn't produce enough sebum to maintain its moisture barrier. This could be genetic, environmental (cold weather, low humidity), or due to damage from harsh products.</p>
+
+        <p><strong>Important note:</strong> Dry skin is a skin TYPE—it's consistent and doesn't change based on the weather or products. If your skin is only dry sometimes, it might be dehydrated (which is different).</p>
+
+        <h3>What Dry Skin Needs:</h3>
+
+        <ul>
+            <li><strong>Cream or oil cleanser:</strong> Nothing foaming—foam cleansers are too stripping for dry skin.</li>
+            <li><strong>Hydrating toner or essence:</strong> Layer this for extra hydration. Look for hyaluronic acid, glycerin, or ceramides.</li>
+            <li><strong>Hydrating serums:</strong> Hyaluronic acid is essential. Layer it under your moisturizer while your skin is still damp.</li>
+            <li><strong>Rich moisturizer:</strong> Look for ingredients like shea butter, squalane, ceramides. Your moisturizer should feel substantial, not lightweight.</li>
+            <li><strong>Face oil:</strong> This seals in moisture. Use it as the last step in your routine at night.</li>
+            <li><strong>Gentle chemical exfoliation:</strong> Lactic acid or PHA once or twice a week to remove dead skin cells without irritation.</li>
+            <li><strong>Hydrating SPF:</strong> Look for moisturizing sunscreens with added skincare benefits.</li>
+        </ul>
+
+        <div class="tip-box">
+            <h4>Dry vs. Dehydrated:</h4>
+            <p>This is crucial. DRY skin lacks oil. DEHYDRATED skin lacks water. You can have oily but dehydrated skin (common!). If your skin is oily but feels tight, if it's shiny but also flaky, if your fine lines look worse when you're oily—you're dehydrated, not dry. The solution? Add hydrating products (hyaluronic acid, glycerin) not just oils.</p>
+        </div>
+
+        <h3>4. Combination Skin</h3>
+
+        <p><strong>What it looks like:</strong> After 30 minutes bare, your T-zone (forehead, nose, chin) is oily or shiny, but your cheeks are normal or dry. You might have enlarged pores in your T-zone but small pores on your cheeks. It's like having two different skin types on one face.</p>
+
+        <p><strong>What it means:</strong> You have more sebaceous glands in your T-zone, so they produce more oil. This is actually the most common skin type, especially during your teens and twenties.</p>
+
+        <h3>What Combination Skin Needs:</h3>
+
+        <ul>
+            <li><strong>Gentle gel cleanser:</strong> Something that balances without over-stripping or leaving residue.</li>
+            <li><strong>Lightweight, hydrating toner:</strong> Your whole face needs hydration.</li>
+            <li><strong>Targeted treatments:</strong> BHA (salicylic acid) on your T-zone, hydrating serums on your cheeks.</li>
+            <li><strong>Different moisturizers for different zones:</strong> Gel moisturizer on your T-zone, cream moisturizer on your cheeks. Or use one balanced moisturizer everywhere.</li>
+            <li><strong>Niacinamide serum:</strong> This balances oil production without drying out your cheeks.</li>
+            <li><strong>Universal SPF:</strong> One that doesn't feel greasy but also doesn't dry you out.</li>
+        </ul>
+
+        <h3>5. Sensitive Skin</h3>
+
+        <p><strong>What it looks like:</strong> Your skin reacts easily to products, weather, or stress. You experience redness, stinging, burning, or itching regularly. You might have visible broken capillaries or flushing. Products that work for everyone else often irritate your skin.</p>
+
+        <p><strong>What it means:</strong> Your skin barrier is compromised or you have underlying conditions like rosacea, eczema, or allergies. Sensitive isn't really a "type"—you can have oily sensitive skin or dry sensitive skin. It's more of a condition that overlays your actual skin type.</p>
+
+        <h3>What Sensitive Skin Needs:</h3>
+
+        <ul>
+            <li><strong>Fragrance-free everything:</strong> Fragrance is one of the most common irritants.</li>
+            <li><strong>Minimal ingredient lists:</strong> Fewer ingredients = fewer potential irritants.</li>
+            <li><strong>Gentle, creamy cleanser:</strong> Nothing with sulfates, no scrubs, no high pH.</li>
+            <li><strong>Barrier-repairing ingredients:</strong> Ceramides, niacinamide, colloidal oatmeal, centella asiatica.</li>
+            <li><strong>Physical sunscreen:</strong> Mineral sunscreens with zinc oxide or titanium dioxide are usually less irritating than chemical ones.</li>
+            <li><strong>Introduce products slowly:</strong> One new product every 2 weeks so you can identify any reactions.</li>
+            <li><strong>Avoid common irritants:</strong> Essential oils, alcohol denat, strong fragrances, harsh exfoliants.</li>
+        </ul>
+
+        <h2>How to Test If You're Wrong About Your Skin Type</h2>
+
+        <p>Think you know your skin type now? Test it:</p>
+
+        <h3>Week 1: Strip Your Routine</h3>
+        <p>Use only the most basic, gentle products: mild cleanser, simple moisturizer, SPF. No actives, no treatments. See what your skin does when it's not reacting to a bunch of products.</p>
+
+        <h3>Week 2-4: Observe Patterns</h3>
+        <p>Note how your skin behaves at different times:</p>
+
+        <ul>
+            <li>Morning vs. evening</li>
+            <li>Different points in your menstrual cycle (if applicable)</li>
+            <li>Different weather conditions</li>
+            <li>After different amounts of sleep or stress</li>
+        </ul>
+
+        <p>Your true skin type is what your skin does consistently, not occasionally.</p>
+
+        <h2>What If Your Skin Type Changes?</h2>
+
+        <p>It can, and it will. Here's when:</p>
+
+        <ul>
+            <li><strong>Hormonal changes:</strong> Puberty, periods, pregnancy, birth control, menopause—hormones affect oil production.</li>
+            <li><strong>Seasons:</strong> Your skin might be oilier in summer, drier in winter. Adjust your routine accordingly.</li>
+            <li><strong>Age:</strong> Generally, skin becomes drier as you age because sebum production decreases.</li>
+            <li><strong>Climate changes:</strong> Moving from a humid to dry climate (or vice versa) can shift your skin type.</li>
+            <li><strong>Medication:</strong> Certain medications affect your skin—especially hormonal treatments and acne medications.</li>
+        </ul>
+
+        <p>Your skin type is not fixed forever. Reassess every 6 months or whenever your routine stops working as well as it used to.</p>
+
+        <h2>Common Skin Type Mistakes</h2>
+
+        <h3>Mistake 1: Thinking You're Oily When You're Actually Dehydrated</h3>
+        <p>If your skin is oily but also feels tight, you're dehydrated. The solution isn't mattifying products—it's adding hydration (hyaluronic acid, glycerin) so your skin stops overproducing oil.</p>
+
+        <h3>Mistake 2: Thinking You're Dry When Your Products Are Too Harsh</h3>
+        <p>If your skin only feels dry after cleansing, your cleanser is too strong. Switch to something gentler and see if your "dry skin" disappears.</p>
+
+        <h3>Mistake 3: Treating Sensitive Skin as a Type</h3>
+        <p>Sensitivity is a condition, not a type. You can have oily sensitive skin or dry sensitive skin. Treat the sensitivity first (repair your barrier) before addressing your actual skin type.</p>
+
+        <h3>Mistake 4: Using the Wrong Products Because of Incorrect Skin Type Diagnosis</h3>
+        <p>If you think you're oily and use mattifying products on dehydrated skin, you'll make it worse. If you think you're dry and use rich creams on oily skin, you'll break out. Getting your skin type wrong has consequences.</p>
+
+        <h2>Building Your Routine Based on Skin Type</h2>
+
+        <p>Now that you know your actual skin type, here's the basic routine structure:</p>
+
+        <h3>All Skin Types Need:</h3>
+        <ol>
+            <li>Cleanser (morning and night)</li>
+            <li>Moisturizer (morning and night)</li>
+            <li>SPF (every morning, no exceptions)</li>
+        </ol>
+
+        <p>That's the foundation. Everything else is customization based on your specific skin type and concerns.</p>
+
+        <h3>Add Based on Your Type:</h3>
+
+        <ul>
+            <li><strong>Oily:</strong> BHA exfoliant, niacinamide, clay masks, oil-free products</li>
+            <li><strong>Dry:</strong> Hydrating toner, hyaluronic acid, face oil, rich moisturizers</li>
+            <li><strong>Combination:</strong> Zone-specific treatments, balanced hydration, niacinamide</li>
+            <li><strong>Sensitive:</strong> Barrier repair, minimal ingredients, fragrance-free, gentle everything</li>
+            <li><strong>Normal:</strong> Maintenance with antioxidants and gentle exfoliation</li>
+        </ul>
+
+        <h2>The Bottom Line</h2>
+
+        <p>Understanding your skin type isn't about fitting into a box—it's about understanding what your skin needs and doesn't need. Once you truly know your skin type, every product decision becomes easier. You'll stop wasting money on products that don't work for you, and you'll build a routine that actually supports your skin instead of fighting against it.</p>
+
+        <p>Do the bare skin test. Observe your skin honestly. Reassess regularly. And remember—your skin type is just a starting point. Your individual skin concerns, lifestyle, environment, and goals all play a role in what your routine should look like.</p>
+
+        <p>Skincare isn't one-size-fits-all, but understanding your skin type is the foundation that makes everything else make sense. Now you know yours—for real this time.</p>
+
+        <a href="index.html#journal" class="back-link">← Back to Journal</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Lumora. All rights reserved. Made with love for beautiful skin.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydration Station Routine - Lumora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF8F5;
+            --taupe: #D4C5B9;
+            --sage: #B8C5B0;
+            --charcoal: #2C2C2C;
+            --warm-white: #FFFCF7;
+            --soft-grey: #E8E4DF;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 252, 247, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--soft-grey);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--sage);
+        }
+
+        .article-header {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .category {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        .featured-image {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            margin: 0 auto 80px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px 120px;
+        }
+
+        .article-content p {
+            font-size: 18px;
+            line-height: 2;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        .article-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin: 60px 0 30px;
+            letter-spacing: 1px;
+        }
+
+        .article-content h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 40px 0 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 30px;
+            padding-left: 40px;
+        }
+
+        .article-content li {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .tip-box {
+            background: var(--cream);
+            padding: 30px;
+            border-left: 4px solid var(--sage);
+            margin: 40px 0;
+        }
+
+        .tip-box h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--sage);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 40px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--charcoal);
+            padding-bottom: 2px;
+        }
+
+        .back-link:hover {
+            color: var(--sage);
+            border-color: var(--sage);
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 60px 40px 40px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 40px; }
+            .nav-links { display: none; }
+            .featured-image { height: 400px; }
+            .article-content p, .article-content li { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">LUMORA</a>
+            <ul class="nav-links">
+                <li><a href="index.html#journal">Journal</a></li>
+                <li><a href="index.html#routines">Routines</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-header">
+        <div class="category">Routines</div>
+        <h1>Hydration Station Routine</h1>
+        <div class="article-meta">7 min read • Published Dec 23, 2025</div>
+    </div>
+
+    <div class="featured-image">
+        <img src="https://images.unsplash.com/photo-1576426863848-c21f53c60b19?w=1200&q=80" alt="Hydration skincare routine">
+    </div>
+
+    <div class="article-content">
+        <a href="index.html#routines" class="back-link">← Back to Routines</a>
+
+        <p>Dry, dehydrated skin is the worst. It's tight, flaky, dull, and makes makeup look patchy. But here's the thing—dry and dehydrated aren't the same, and understanding the difference is the key to fixing the problem.</p>
+
+        <p>This routine is designed to flood your skin with moisture, repair your barrier, and bring back that plump, glowing complexion. Whether your skin is naturally dry or temporarily dehydrated, this is your reset button.</p>
+
+        <h2>Dry vs. Dehydrated: What's the Difference?</h2>
+
+        <h3>Dry Skin (A Skin Type)</h3>
+        <p>Dry skin lacks oil. It's genetic—your sebaceous glands don't produce enough sebum. This skin type tends to feel tight, rough, and flaky, especially in cold weather. It's often accompanied by fine lines and a dull complexion.</p>
+
+        <h3>Dehydrated Skin (A Skin Condition)</h3>
+        <p>Dehydrated skin lacks water. Even oily skin can be dehydrated. It looks dull, feels tight, and shows fine lines that aren't necessarily wrinkles. It's caused by external factors like weather, diet, over-exfoliation, or harsh products.</p>
+
+        <p>The good news? Both respond incredibly well to a hydration-focused routine. The key is layering water-based and oil-based products strategically.</p>
+
+        <h2>The Science of Hydration</h2>
+
+        <p>Your skin has a moisture barrier made up of ceramides, cholesterol, and fatty acids. When this barrier is compromised (by over-cleansing, harsh products, or environmental damage), water escapes and irritants get in. The result? Dry, sensitive, unhappy skin.</p>
+
+        <p>A hydration routine works in three steps:</p>
+
+        <ol>
+            <li><strong>Humectants</strong> draw water into your skin (hyaluronic acid, glycerin)</li>
+            <li><strong>Emollients</strong> smooth and soften (ceramides, fatty acids)</li>
+            <li><strong>Occlusives</strong> seal everything in and prevent water loss (oils, petrolatum)</li>
+        </ol>
+
+        <p>You need all three. Skipping any step means your hydration won't last.</p>
+
+        <h2>The Complete Hydration Station Routine</h2>
+
+        <h3>Step 1: Gentle, Non-Stripping Cleanser (2 minutes)</h3>
+
+        <p>If your skin feels tight after cleansing, your cleanser is too harsh. Switch to a creamy, hydrating formula that cleanses without disrupting your moisture barrier. Look for ingredients like glycerin, ceramides, and hyaluronic acid.</p>
+
+        <p>Massage gently for 60 seconds with lukewarm water—never hot, which strips natural oils. Pat dry with a soft towel, leaving skin slightly damp.</p>
+
+        <div class="tip-box">
+            <h4>Morning Cleanse Hack</h4>
+            <p>If your skin is very dry, skip the cleanser in the morning. Just rinse with lukewarm water to remove overnight buildup without stripping your skin's natural oils.</p>
+        </div>
+
+        <h3>Step 2: Hydrating Toner or Essence (1 minute)</h3>
+
+        <p>This is where hydration starts. Use a toner packed with humectants—these ingredients pull water into your skin like a sponge. Apply to damp skin (don't dry your face completely after cleansing) to trap even more moisture.</p>
+
+        <p>Pat it in with your hands, applying 2-3 layers if your skin is really thirsty. This technique, called "toner layering" or the "7-skin method," is a K-beauty secret for deeply hydrated, bouncy skin.</p>
+
+        <h3>Step 3: Hyaluronic Acid Serum (1-2 minutes)</h3>
+
+        <p>Hyaluronic acid (HA) is a hydration superstar. It holds up to 1,000 times its weight in water, which means it plumps your skin instantly and keeps it hydrated throughout the day.</p>
+
+        <p>Apply 3-4 drops to damp skin. This is crucial—HA needs water to work. If you apply it to dry skin, it can actually pull moisture out of deeper layers, making things worse. Always apply on damp skin or layer over a hydrating toner.</p>
+
+        <div class="tip-box">
+            <h4>Choosing the Right HA</h4>
+            <p>Look for products with multiple molecular weights of hyaluronic acid. Smaller molecules penetrate deeper, larger molecules hydrate the surface. You want both for maximum hydration.</p>
+        </div>
+
+        <h3>Step 4: Hydrating Serum or Ampoule (1-2 minutes)</h3>
+
+        <p>Layer another hydration-focused serum for extra moisture. Look for ingredients like:</p>
+
+        <ul>
+            <li><strong>Glycerin:</strong> A humectant that draws water to your skin</li>
+            <li><strong>Panthenol (Pro-Vitamin B5):</strong> Deeply hydrating and soothing</li>
+            <li><strong>Sodium PCA:</strong> A natural moisturizing factor found in healthy skin</li>
+            <li><strong>Beta-glucan:</strong> Hydrates and calms inflammation</li>
+            <li><strong>Squalane:</strong> A lightweight oil that mimics your skin's natural sebum</li>
+        </ul>
+
+        <p>Apply while your previous layers are still slightly damp. This helps products absorb and work together.</p>
+
+        <h3>Step 5: Eye Cream (1 minute)</h3>
+
+        <p>The eye area is the first place to show dehydration—fine lines, crepiness, and dark circles all get worse when you're not hydrated. Use a rich, nourishing eye cream with ceramides and peptides.</p>
+
+        <p>Gently tap around the orbital bone, avoiding direct contact with your lash line. Use your ring finger for the lightest pressure.</p>
+
+        <h3>Step 6: Moisturizer with Ceramides (2 minutes)</h3>
+
+        <p>This is where you lock everything in. Choose a moisturizer rich in ceramides—these lipids repair your moisture barrier and prevent trans-epidermal water loss (TEWL). A damaged barrier can't hold hydration, so this step is critical.</p>
+
+        <p>Apply generously to your face and neck while your skin is still slightly damp from previous layers. Don't be afraid to use more than you think you need—dry skin requires a rich, occlusive layer.</p>
+
+        <h3>Step 7: Facial Oil (1-2 minutes)</h3>
+
+        <p>Oils are occlusives—they create a protective seal over your skin to prevent water evaporation. This step is especially important for dry skin types or in cold, dry climates.</p>
+
+        <p>Use 3-5 drops of a nourishing oil like:</p>
+
+        <ul>
+            <li><strong>Rosehip oil:</strong> Rich in fatty acids and vitamin A</li>
+            <li><strong>Marula oil:</strong> Lightweight, antioxidant-rich</li>
+            <li><strong>Squalane:</strong> Non-comedogenic, mimics natural sebum</li>
+            <li><strong>Jojoba oil:</strong> Balances oil production, deeply moisturizing</li>
+        </ul>
+
+        <p>Warm the oil in your palms and press gently into your skin. Don't rub—press and pat for maximum absorption.</p>
+
+        <h3>Step 8 (AM Only): Hydrating SPF (2 minutes)</h3>
+
+        <p>In the morning, finish with a hydrating sunscreen. Look for formulas with added glycerin or hyaluronic acid. Mineral sunscreens can be drying, so chemical formulas might work better for very dry skin.</p>
+
+        <p>Apply generously and let it set for a few minutes before makeup.</p>
+
+        <h3>Step 9 (PM Only): Sleeping Mask or Occlusive (1 minute)</h3>
+
+        <p>At night, seal everything with a sleeping mask or occlusive balm. These products create an intense moisture barrier that works while you sleep. Use 2-3 times per week or every night if your skin is severely dehydrated.</p>
+
+        <p>Popular options: Laneige Water Sleeping Mask, Cosrx Ultimate Nourishing Rice Overnight Spa Mask, or plain Aquaphor/Vaseline for ultra-dry patches.</p>
+
+        <h2>Product Recommendations for Dry Skin</h2>
+
+        <ul>
+            <li><strong>Cleanser:</strong> La Roche-Posay Toleriane Hydrating Gentle Cleanser</li>
+            <li><strong>Toner:</strong> Hada Labo Gokujyun Premium Lotion</li>
+            <li><strong>HA Serum:</strong> The Ordinary Hyaluronic Acid 2% + B5</li>
+            <li><strong>Hydrating Serum:</strong> Cosrx Hydrium Watery Toner</li>
+            <li><strong>Eye Cream:</strong> Kiehl's Creamy Eye Treatment with Avocado</li>
+            <li><strong>Moisturizer:</strong> CeraVe Moisturizing Cream</li>
+            <li><strong>Facial Oil:</strong> The Ordinary 100% Organic Cold-Pressed Rose Hip Seed Oil</li>
+            <li><strong>Sleeping Mask:</strong> Laneige Water Sleeping Mask</li>
+        </ul>
+
+        <h2>Product Recommendations for Dehydrated Skin</h2>
+
+        <ul>
+            <li><strong>Cleanser:</strong> Cetaphil Gentle Skin Cleanser</li>
+            <li><strong>Toner:</strong> Klairs Supple Preparation Unscented Toner</li>
+            <li><strong>HA Serum:</strong> Neutrogena Hydro Boost Hydrating Serum</li>
+            <li><strong>Hydrating Serum:</strong> The Inkey List Hyaluronic Acid Serum</li>
+            <li><strong>Eye Cream:</strong> CeraVe Eye Repair Cream</li>
+            <li><strong>Moisturizer:</strong> First Aid Beauty Ultra Repair Cream</li>
+            <li><strong>Facial Oil:</strong> The Ordinary 100% Plant-Derived Squalane</li>
+            <li><strong>Sleeping Mask:</strong> Glow Recipe Watermelon Glow Sleeping Mask</li>
+        </ul>
+
+        <h2>Hydration Boosters</h2>
+
+        <h3>Facial Mist</h3>
+        <p>Keep a hydrating facial mist with you throughout the day. Spritz over makeup to refresh and rehydrate. Look for mists with glycerin, aloe, or hyaluronic acid—not just plain water, which can actually dehydrate your skin.</p>
+
+        <h3>Humidifier</h3>
+        <p>This is non-negotiable in dry climates or during winter. A humidifier adds moisture to the air, which prevents your skin from drying out overnight. Run it while you sleep for maximum benefit.</p>
+
+        <h3>Hydrating Sheet Masks</h3>
+        <p>Use a hydrating sheet mask 2-3 times per week for an instant moisture boost. Leave it on for 15-20 minutes, then pat in the remaining essence. Follow with moisturizer to seal it in.</p>
+
+        <h3>Water Intake</h3>
+        <p>This sounds obvious, but drinking water matters. Aim for at least 8 glasses a day. Add electrolytes or eat water-rich foods (cucumbers, watermelon, oranges) for better hydration.</p>
+
+        <h2>What to Avoid</h2>
+
+        <h3>Harsh Cleansers</h3>
+        <p>Anything that foams heavily or contains sulfates (SLS, SLES) is too stripping. Avoid "squeaky clean" feelings—that's your moisture barrier crying for help.</p>
+
+        <h3>Over-Exfoliation</h3>
+        <p>Acids and physical scrubs damage your moisture barrier. If your skin is dry or dehydrated, pause exfoliation until your barrier is repaired. Then reintroduce gently—once a week max.</p>
+
+        <h3>Alcohol-Based Products</h3>
+        <p>Astringent toners, alcohol-heavy serums, and drying spot treatments make dehydration worse. Check ingredient lists and avoid denatured alcohol (alcohol denat.).</p>
+
+        <h3>Hot Showers</h3>
+        <p>Hot water strips your skin's natural oils. Keep showers lukewarm and short. Pat your face dry immediately after to prevent moisture loss.</p>
+
+        <h3>Skipping Moisturizer</h3>
+        <p>Even oily skin needs moisturizer when dehydrated. Skipping it signals your skin to produce more oil, creating a vicious cycle. Hydrate properly and your oil production will balance out.</p>
+
+        <h2>When to Do This Routine</h2>
+
+        <h3>Daily Maintenance</h3>
+        <p>Use this routine morning and night if your skin is naturally dry. Consistency is key—hydration builds over time.</p>
+
+        <h3>Intensive Treatment</h3>
+        <p>If your skin is dehydrated (temporarily dry due to weather, stress, or product damage), use this routine for 1-2 weeks straight. You should see significant improvement within 7-10 days.</p>
+
+        <h3>Seasonal Adjustment</h3>
+        <p>Amp up hydration in winter or dry climates. You might be able to lighten your routine in humid summer months, but don't skip the basics.</p>
+
+        <h2>Signs Your Hydration Routine Is Working</h2>
+
+        <p>Within 1 week, you should notice:</p>
+
+        <ul>
+            <li>Less tightness throughout the day</li>
+            <li>Smoother texture, fewer flakes</li>
+            <li>Plumper, more supple skin</li>
+            <li>Improved makeup application (less patchiness)</li>
+        </ul>
+
+        <p>Within 2-4 weeks:</p>
+
+        <ul>
+            <li>Fine lines from dehydration start to diminish</li>
+            <li>Skin looks brighter and more radiant</li>
+            <li>Oil production balances out (for dehydrated oily skin)</li>
+            <li>Increased resilience—less sensitivity and redness</li>
+        </ul>
+
+        <h2>The Bottom Line</h2>
+
+        <p>Hydration isn't just about slapping on moisturizer and calling it a day. It's about layering lightweight, water-based products, then sealing everything in with emollients and occlusives. It's about drinking water, using a humidifier, and treating your moisture barrier like the precious shield it is.</p>
+
+        <p>Give this routine 2 weeks. Your skin will transform—plumper, smoother, glowier. And once you experience truly hydrated skin, you'll never go back.</p>
+
+        <p>Drink your water, layer your serums, and glow from within.</p>
+
+        <a href="index.html#routines" class="back-link">← Back to Routines</a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Lumora. All rights reserved. Made with love for beautiful skin.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olivia Rodrigo's Dewy 'No-Makeup' Makeup - Lumora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF8F5;
+            --taupe: #D4C5B9;
+            --sage: #B8C5B0;
+            --charcoal: #2C2C2C;
+            --warm-white: #FFFCF7;
+            --soft-grey: #E8E4DF;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 252, 247, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--soft-grey);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--sage);
+        }
+
+        /* Article Header */
+        .article-header {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .category {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            margin: 0 auto 80px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px 120px;
+        }
+
+        .article-content p {
+            font-size: 18px;
+            line-height: 2;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        .article-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin: 60px 0 30px;
+            letter-spacing: 1px;
+        }
+
+        .article-content h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 40px 0 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 30px;
+            padding-left: 40px;
+        }
+
+        .article-content li {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .tip-box {
+            background: var(--cream);
+            padding: 30px;
+            border-left: 4px solid var(--sage);
+            margin: 40px 0;
+        }
+
+        .tip-box h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--sage);
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin: 40px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--charcoal);
+            padding-bottom: 2px;
+        }
+
+        .back-link:hover {
+            color: var(--sage);
+            border-color: var(--sage);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 60px 40px 40px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .featured-image {
+                height: 400px;
+            }
+
+            .article-content p,
+            .article-content li {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">LUMORA</a>
+            <ul class="nav-links">
+                <li><a href="index.html#journal">Journal</a></li>
+                <li><a href="index.html#routines">Routines</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <div class="article-header">
+        <div class="category">Get The Look</div>
+        <h1>Olivia Rodrigo's Dewy 'No-Makeup' Makeup</h1>
+        <div class="article-meta">7 min read • Published Dec 23, 2025</div>
+    </div>
+
+    <!-- Featured Image -->
+    <div class="featured-image">
+        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1200&q=80" alt="Natural dewy makeup look">
+    </div>
+
+    <!-- Article Content -->
+    <div class="article-content">
+        <a href="index.html#journal" class="back-link">← Back to Journal</a>
+
+        <p>Olivia Rodrigo's signature look isn't about dramatic eyeshadow or bold lips—it's about skin that looks so healthy and naturally glowy that you can't tell where skincare ends and makeup begins. That fresh, dewy, "I just have perfect skin" vibe she always has? It's totally achievable, but it requires way more prep work than you might think.</p>
+
+        <p>The secret to this look is that it's 70% skincare and 30% strategic makeup. The goal is to look like you're not wearing makeup at all, just blessed with amazing skin. Let's break down exactly how to get there, starting with the most important part—prep.</p>
+
+        <h2>The Foundation: Skin Prep is Everything</h2>
+
+        <p>You can't fake good skin if your skin isn't properly prepped. Olivia's makeup artists consistently talk about how much work goes into her skin before any makeup touches her face. This is the non-negotiable step that makes or breaks the entire look.</p>
+
+        <h3>The Night Before</h3>
+
+        <p>If you want that dewy, plump look in the morning, you need to set yourself up the night before:</p>
+
+        <ul>
+            <li><strong>Hydrating sheet mask:</strong> This is the secret weapon. A hyaluronic acid sheet mask the night before plumps your skin and gives you that natural fullness that makeup can enhance but never create.</li>
+            <li><strong>Face oil or sleeping mask:</strong> Go heavier than usual with your nighttime moisturizer. Your skin will drink it up overnight and look incredibly supple in the morning.</li>
+            <li><strong>Eye masks or cold spoons:</strong> If you tend to wake up puffy, keep eye masks or metal spoons in the fridge. Use them in the morning to depuff.</li>
+        </ul>
+
+        <h3>Morning Skin Prep</h3>
+
+        <p>This is where the magic really happens. Give yourself at least 20 minutes before makeup for these steps to properly absorb:</p>
+
+        <h3>Step 1: Gentle Cleanse</h3>
+        <p>Use a creamy, non-stripping cleanser. You want your skin's natural oils intact—they contribute to that dewy look. Pat dry, don't rub.</p>
+
+        <h3>Step 2: Hydrating Toner or Essence</h3>
+        <p>This is crucial for the dewy finish. Use a hydrating toner and actually layer it 2-3 times, letting each layer absorb before adding the next. This is called the "7-skin method" in K-beauty, and it creates incredible plumpness.</p>
+
+        <div class="tip-box">
+            <h4>The Layering Technique:</h4>
+            <p>When layering toner, pour a small amount into your palms, press it into your skin (don't swipe), wait 30 seconds for absorption, then repeat. Your skin should feel bouncy and full, not wet or sticky. If it feels sticky, you're using too much at once or not waiting long enough between layers.</p>
+        </div>
+
+        <h3>Step 3: Serum Cocktail</h3>
+        <p>Layer these in order for maximum dewiness:</p>
+
+        <ol>
+            <li><strong>Hyaluronic acid serum:</strong> This holds moisture in your skin, creating that plump look. Apply to damp skin for better absorption.</li>
+            <li><strong>Vitamin C serum:</strong> Brightens and evens tone. This gives you that lit-from-within glow.</li>
+            <li><strong>Niacinamide (optional):</strong> Refines pores and smooths texture, creating a flawless base.</li>
+        </ol>
+
+        <h3>Step 4: Eye Cream</h3>
+        <p>Use a brightening or hydrating eye cream with a cooling applicator. Tap it in gently with your ring finger—this is the weakest finger and won't pull at the delicate eye area. Focus on the inner corners and under-eye area.</p>
+
+        <h3>Step 5: Moisturizer</h3>
+        <p>This is where you can customize based on your skin type:</p>
+
+        <ul>
+            <li><strong>Dry skin:</strong> Use a rich, emollient cream moisturizer</li>
+            <li><strong>Normal skin:</strong> A gel-cream hybrid works perfectly</li>
+            <li><strong>Oily skin:</strong> Use a lightweight gel moisturizer—you still need moisture for the dewy look, just less of it</li>
+        </ul>
+
+        <h3>Step 6: Face Oil</h3>
+        <p>Here's the secret to Olivia's signature glow—a face oil mixed with moisturizer or applied right after. Use 2-3 drops of squalane, rosehip, or marula oil. Press it into your skin, focusing on your cheekbones, bridge of nose, and anywhere you want extra glow.</p>
+
+        <h3>Step 7: SPF</h3>
+        <p>Non-negotiable. Use a dewy-finish sunscreen or a hydrating SPF 50. Some of the best ones for this look are Asian beauty sunscreens that leave a natural, glowy finish instead of a white cast.</p>
+
+        <p><strong>Wait time:</strong> Let everything absorb for 10-15 minutes before starting makeup. Brush your teeth, get dressed, drink water—give your skin time to absorb all those products. If you apply makeup too soon, everything will slide around.</p>
+
+        <h2>The Makeup: Strategic Enhancement</h2>
+
+        <p>Now that your skin is prepped and glowing, the makeup is just about enhancing what's already there. The key word here is "sheer"—everything should be light and buildable.</p>
+
+        <h3>Step 1: Primer (Optional)</h3>
+
+        <p>For this look, you might not need primer at all if your skincare is on point. But if you want extra longevity or have large pores, use a hydrating, glowy primer—not mattifying. Apply only to your T-zone and anywhere makeup tends to fade.</p>
+
+        <h3>Step 2: Color Correcting (Only If Needed)</h3>
+
+        <p>If you have dark circles or redness, use a color corrector before anything else:</p>
+
+        <ul>
+            <li><strong>Peach/orange corrector:</strong> For dark circles on medium to deep skin tones</li>
+            <li><strong>Pink corrector:</strong> For dark circles on fair to light skin tones</li>
+            <li><strong>Green corrector:</strong> For redness (use sparingly)</li>
+        </ul>
+
+        <h3>Step 3: Skin Tint or Light Foundation</h3>
+
+        <p>This is crucial—you do NOT want full coverage foundation for this look. Use one of these:</p>
+
+        <ul>
+            <li>Tinted moisturizer</li>
+            <li>Skin tint</li>
+            <li>BB cream</li>
+            <li>Light coverage foundation mixed with a drop of face oil</li>
+        </ul>
+
+        <p><strong>Application method:</strong> Use your fingers or a damp beauty sponge. Apply sparingly—you want your actual skin to show through. Focus on the center of your face and blend outward to nothing. Your face shouldn't look mask-like.</p>
+
+        <h3>Step 4: Concealer</h3>
+
+        <p>Use concealer only where you actually need it:</p>
+
+        <ul>
+            <li>Under eyes in an inverted triangle shape</li>
+            <li>Around the nose if you have redness</li>
+            <li>On any blemishes or spots</li>
+        </ul>
+
+        <p><strong>Technique:</strong> Use one shade lighter than your skin tone under eyes for brightening. Use your exact shade for blemishes. Blend with your ring finger or a damp sponge—the warmth of your finger helps the product meld into your skin.</p>
+
+        <div class="tip-box">
+            <h4>The No-Makeup Makeup Rule:</h4>
+            <p>If someone can tell where your foundation or concealer ends, you're using too much. The whole point is for products to become invisible on your skin, just enhancing your natural complexion rather than covering it up entirely.</p>
+        </div>
+
+        <h3>Step 5: Strategic Powder (Use Sparingly)</h3>
+
+        <p>For dewy makeup, powder is almost the enemy. But you need a tiny bit to set your concealer and prevent creasing. Here's how:</p>
+
+        <ul>
+            <li>Use a finely-milled translucent powder</li>
+            <li>Apply ONLY under your eyes with a small brush or sponge</li>
+            <li>If you're oily, add a light dusting to your T-zone</li>
+            <li>The rest of your face stays cream-only for maximum dewiness</li>
+        </ul>
+
+        <h3>Step 6: Cream Blush</h3>
+
+        <p>Cream products are essential for this look—they melt into your skin and look natural. Choose a soft pink, peach, or berry shade that mimics a natural flush:</p>
+
+        <ul>
+            <li>Dot the cream blush on the apples of your cheeks</li>
+            <li>Blend upward toward your temples with your fingers</li>
+            <li>Build gradually—you can always add more</li>
+            <li>Blend until you can't see where it starts or ends</li>
+        </ul>
+
+        <h3>Step 7: Subtle Contour (Optional)</h3>
+
+        <p>Olivia's makeup usually includes very subtle definition. If you want this, use a cream contour in a cool-toned brown (not orange):</p>
+
+        <ul>
+            <li>Apply lightly to the hollows of your cheeks</li>
+            <li>Along your jawline</li>
+            <li>Sides of your nose if you want</li>
+            <li>Blend thoroughly—this should be barely visible</li>
+        </ul>
+
+        <h3>Step 8: The Glow</h3>
+
+        <p>This is what makes the look. You need strategic highlighting to look naturally dewy:</p>
+
+        <ul>
+            <li><strong>Liquid highlighter:</strong> Mix a drop into your foundation for all-over luminosity, or apply to high points of your face (cheekbones, bridge of nose, cupid's bow, inner corners of eyes)</li>
+            <li><strong>Application method:</strong> Tap it in with your fingers—you want it to look like it's coming from within your skin, not sitting on top</li>
+            <li><strong>The final trick:</strong> A drop of face oil on your fingertips, pressed onto your cheekbones after all makeup is done. This creates the most natural-looking dewiness.</li>
+        </ul>
+
+        <h3>Step 9: Brows</h3>
+
+        <p>Keep brows natural and fluffy:</p>
+
+        <ul>
+            <li>Brush them up with a spoolie</li>
+            <li>Fill any sparse areas lightly with a brow pencil that matches your hair</li>
+            <li>Set with a clear or tinted brow gel</li>
+            <li>The goal is "your brows but better," not Instagram brows</li>
+        </ul>
+
+        <h3>Step 10: Eyes</h3>
+
+        <p>The eye makeup is minimal but intentional:</p>
+
+        <ul>
+            <li>Curl your lashes—this opens up your eyes</li>
+            <li>One coat of lengthening mascara on upper lashes</li>
+            <li>Optional: A soft brown or taupe eyeshadow in your crease for subtle definition</li>
+            <li>Optional: Smudge brown eyeliner on your upper lash line and smudge it out for a soft, lived-in look</li>
+        </ul>
+
+        <h3>Step 11: Lips</h3>
+
+        <p>The lip is usually understated to keep focus on the skin:</p>
+
+        <ul>
+            <li>Use the same cream blush you used on your cheeks, or</li>
+            <li>A sheer lip tint in a "your lips but better" shade, or</li>
+            <li>A tinted lip balm</li>
+            <li>Top with a clear or slightly tinted gloss for that fresh, hydrated look</li>
+        </ul>
+
+        <h3>Step 12: Setting Spray</h3>
+
+        <p>The final crucial step—setting spray melds everything together and adds an extra layer of dewiness:</p>
+
+        <ul>
+            <li>Choose a dewy or hydrating setting spray (not matte)</li>
+            <li>Hold it 8-10 inches from your face</li>
+            <li>Mist in an X and T pattern to cover your whole face</li>
+            <li>Let it dry naturally—don't touch your face</li>
+        </ul>
+
+        <h2>The Maintenance</h2>
+
+        <p>Dewy makeup doesn't just stay perfect all day—you need to refresh it:</p>
+
+        <ul>
+            <li><strong>Blotting papers (not powder):</strong> If you get oily, use blotting papers to absorb excess oil without removing your makeup</li>
+            <li><strong>Face mist:</strong> Refresh your dewiness throughout the day with a hydrating mist</li>
+            <li><strong>Lip product:</strong> Reapply your lip tint or gloss as needed</li>
+        </ul>
+
+        <h2>Common Mistakes to Avoid</h2>
+
+        <ul>
+            <li><strong>Using too much product:</strong> This look is about skin showing through, not layers of makeup</li>
+            <li><strong>Skipping skincare:</strong> You cannot achieve this with makeup alone—the skincare prep is essential</li>
+            <li><strong>Using powder products:</strong> Powder foundation, powder blush, powder highlight will all make you look less dewy</li>
+            <li><strong>Not blending enough:</strong> Every product should be completely blended so you can't see where it begins or ends</li>
+            <li><strong>Wrong shade matches:</strong> Foundation and concealer that don't match your skin tone will look obvious in this minimal makeup look</li>
+        </ul>
+
+        <h2>The Bottom Line</h2>
+
+        <p>Olivia Rodrigo's dewy no-makeup makeup look is about making your skin look so healthy and glowy that makeup becomes almost invisible. It requires patience, good skincare, and a light hand with makeup. The result is worth it—you look fresh, awake, and naturally beautiful.</p>
+
+        <p>Start with the skincare routine and perfect that first. Once your skin is properly hydrated and prepped, the makeup becomes almost foolproof. Practice the technique, find the products that work for your skin type, and remember—less is always more with this look.</p>
+
+        <p>This isn't about covering up your skin; it's about celebrating it and making it look like its absolute best version. That's the real secret to Olivia's signature look—and now it's yours too.</p>
+
+        <a href="index.html#journal" class="back-link">← Back to Journal</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Lumora. All rights reserved. Made with love for beautiful skin.</p>
+        </div>
+    </footer>
+</body>
+</html>

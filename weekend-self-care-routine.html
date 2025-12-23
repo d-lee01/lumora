@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekend Self-Care Routine - Lumora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF8F5;
+            --taupe: #D4C5B9;
+            --sage: #B8C5B0;
+            --charcoal: #2C2C2C;
+            --warm-white: #FFFCF7;
+            --soft-grey: #E8E4DF;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 252, 247, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--soft-grey);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--sage);
+        }
+
+        .article-header {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .category {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        .featured-image {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            margin: 0 auto 80px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px 120px;
+        }
+
+        .article-content p {
+            font-size: 18px;
+            line-height: 2;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        .article-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin: 60px 0 30px;
+            letter-spacing: 1px;
+        }
+
+        .article-content h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 40px 0 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 30px;
+            padding-left: 40px;
+        }
+
+        .article-content li {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .tip-box {
+            background: var(--cream);
+            padding: 30px;
+            border-left: 4px solid var(--sage);
+            margin: 40px 0;
+        }
+
+        .tip-box h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--sage);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 40px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--charcoal);
+            padding-bottom: 2px;
+        }
+
+        .back-link:hover {
+            color: var(--sage);
+            border-color: var(--sage);
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 60px 40px 40px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 40px; }
+            .nav-links { display: none; }
+            .featured-image { height: 400px; }
+            .article-content p, .article-content li { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">LUMORA</a>
+            <ul class="nav-links">
+                <li><a href="index.html#journal">Journal</a></li>
+                <li><a href="index.html#routines">Routines</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-header">
+        <div class="category">Routines</div>
+        <h1>Weekend Self-Care Routine</h1>
+        <div class="article-meta">8 min read • Published Dec 23, 2025</div>
+    </div>
+
+    <div class="featured-image">
+        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1200&q=80" alt="Weekend self-care skincare routine">
+    </div>
+
+    <div class="article-content">
+        <a href="index.html#routines" class="back-link">← Back to Routines</a>
+
+        <p>Your weekend is when you finally have time to slow down, reset, and give your skin the deep care it deserves. This isn't your rushed weekday routine—this is the luxe, multi-step experience that leaves your skin glowing and your mind relaxed.</p>
+
+        <p>Think of this as your at-home spa day. We're talking masks, treatments, facial massage, and all the extras you skip during the week. This routine is about more than just skincare—it's about taking time for yourself and enjoying the process.</p>
+
+        <h2>Why Dedicate Time to a Weekend Routine</h2>
+
+        <p>During the week, you're in maintenance mode—cleanse, treat, protect, repeat. But your skin needs more than maintenance. It needs intensive treatments, deep exfoliation, and serious hydration to undo the damage from stress, pollution, and daily wear.</p>
+
+        <p>A weekly self-care routine:</p>
+
+        <ul>
+            <li>Deeply exfoliates to remove dead skin buildup</li>
+            <li>Delivers concentrated treatments that need time to work</li>
+            <li>Boosts circulation through massage and facial tools</li>
+            <li>Floods your skin with hydration for the week ahead</li>
+            <li>Gives you a mental reset and stress relief</li>
+        </ul>
+
+        <p>This isn't about perfection. It's about investing in your skin and carving out time for yourself. You deserve this.</p>
+
+        <h2>The Complete Weekend Self-Care Routine</h2>
+
+        <h3>Step 1: Double Cleanse (3-4 minutes)</h3>
+
+        <p>Start with a clean slate. Use an oil cleanser or cleansing balm to remove SPF, makeup, and oil buildup. Massage for 1-2 minutes—this isn't just cleaning, it's also stimulating circulation and prepping your skin for deeper cleansing.</p>
+
+        <p>Emulsify with water and rinse, then follow with a water-based cleanser. Massage for another 60-90 seconds, focusing on areas prone to congestion (nose, chin, forehead). Rinse with lukewarm water.</p>
+
+        <h3>Step 2: Exfoliation - Physical or Chemical (3-5 minutes)</h3>
+
+        <p>This is your deep exfoliation step—the one you skip during the week. Choose either physical or chemical exfoliation based on your preference:</p>
+
+        <h4>Physical Exfoliation</h4>
+        <p>Use a gentle scrub with fine particles (avoid harsh walnut or apricot scrubs). Massage in circular motions for 1-2 minutes, focusing on rough areas. Rinse thoroughly.</p>
+
+        <h4>Chemical Exfoliation</h4>
+        <p>Apply an AHA or BHA treatment (glycolic acid 8-10%, salicylic acid 2%, or lactic acid 10%). Leave on for 5-10 minutes (follow product instructions), then rinse or proceed to the next step if it's a leave-on formula.</p>
+
+        <p>Chemical exfoliation is generally more effective and less irritating than physical scrubs, but both work if used correctly.</p>
+
+        <div class="tip-box">
+            <h4>Exfoliation Warning</h4>
+            <p>Only exfoliate once per week with strong acids or scrubs. Over-exfoliating damages your moisture barrier and causes sensitivity, redness, and breakouts. More is not better.</p>
+        </div>
+
+        <h3>Step 3: Steam or Warm Compress (5 minutes)</h3>
+
+        <p>Open your pores and prep your skin for extractions or masks. You can either:</p>
+
+        <ul>
+            <li>Steam your face over a bowl of hot water for 5 minutes (add chamomile or green tea for extra benefits)</li>
+            <li>Apply a warm, damp washcloth to your face for 3-5 minutes</li>
+            <li>Take a hot shower and let the steam work its magic</li>
+        </ul>
+
+        <p>This softens blackheads, loosens debris, and helps treatments penetrate deeper.</p>
+
+        <h3>Step 4: Extractions (Optional, 5-10 minutes)</h3>
+
+        <p>If you have blackheads or clogged pores, now is the time to extract them—after exfoliation and steaming, when pores are softened. Use clean extraction tools or wrapped fingers (never bare nails).</p>
+
+        <p>Only extract what comes out easily. Don't force it or you'll damage your skin. Focus on blackheads and whiteheads—leave cystic acne alone (it needs professional treatment).</p>
+
+        <p>After extractions, apply a toner with witch hazel or niacinamide to tighten pores and reduce inflammation.</p>
+
+        <div class="tip-box">
+            <h4>Extraction Safety</h4>
+            <p>If you're not comfortable doing extractions, skip this step. Improper technique causes scarring and broken capillaries. When in doubt, see a professional esthetician.</p>
+        </div>
+
+        <h3>Step 5: Treatment Mask (15-20 minutes)</h3>
+
+        <p>This is the star of your weekend routine. Choose a mask based on your skin's needs:</p>
+
+        <h4>Clay Mask (Oily/Acne-Prone Skin)</h4>
+        <p>Draws out impurities, absorbs excess oil, and tightens pores. Look for kaolin or bentonite clay. Apply a thin layer, leave for 10-15 minutes, rinse before it's completely dry (to avoid over-drying).</p>
+
+        <h4>Hydrating Sheet Mask (Dry/Dehydrated Skin)</h4>
+        <p>Soaks your skin in concentrated hydration. Look for hyaluronic acid, ceramides, or glycerin. Apply for 15-20 minutes, remove, and pat in the remaining essence.</p>
+
+        <h4>Brightening Mask (Dull/Hyperpigmented Skin)</h4>
+        <p>Contains vitamin C, niacinamide, or alpha arbutin to fade dark spots and boost radiance. Apply as directed, usually 10-15 minutes.</p>
+
+        <h4>Exfoliating Mask (Uneven Texture)</h4>
+        <p>Contains AHAs or enzymes to gently resurface skin. Apply for 5-10 minutes (don't leave on too long or you'll irritate your skin).</p>
+
+        <h4>Overnight Mask (All Skin Types)</h4>
+        <p>Rich, occlusive treatment that locks in hydration overnight. Apply as the last step after your full routine.</p>
+
+        <p>While your mask is on, this is your relaxation time. Put on music, light a candle, make tea, and just chill. This is self-care.</p>
+
+        <h3>Step 6: Toner or Essence (1 minute)</h3>
+
+        <p>After rinsing your mask, apply a hydrating toner to rebalance and prep your skin. Pat it in with your hands, doing 2-3 layers for extra hydration (the "7-skin method").</p>
+
+        <h3>Step 7: Facial Massage or Gua Sha (5-10 minutes)</h3>
+
+        <p>This step boosts circulation, promotes lymphatic drainage, and helps products absorb deeper. Apply a facial oil or serum to create slip, then massage using one of these techniques:</p>
+
+        <h4>Manual Massage</h4>
+        <p>Use your fingertips to massage in upward, outward motions. Focus on pressure points: temples, jawline, under cheekbones. Spend 5 minutes working the entire face and neck.</p>
+
+        <h4>Gua Sha</h4>
+        <p>Use a gua sha stone to scrape along your face in upward, outward strokes. This reduces puffiness, sculpts contours, and promotes lymphatic drainage. Follow a tutorial for proper technique.</p>
+
+        <h4>Jade Roller</h4>
+        <p>Roll the tool from the center of your face outward, always moving in one direction (never back and forth). Great for depuffing and cooling skin.</p>
+
+        <p>Facial massage isn't just relaxing—it genuinely improves circulation, reduces puffiness, and enhances product absorption. Plus, it feels amazing.</p>
+
+        <h3>Step 8: Serum Cocktail (2-3 minutes)</h3>
+
+        <p>Now that your skin is primed, layer targeted serums. This is when you can use multiple treatments together:</p>
+
+        <ol>
+            <li><strong>First layer:</strong> Hydrating serum (hyaluronic acid)</li>
+            <li><strong>Second layer:</strong> Treatment serum (vitamin C, niacinamide, or retinol—choose one)</li>
+            <li><strong>Third layer:</strong> Antioxidant serum (green tea, resveratrol, or vitamin E)</li>
+        </ol>
+
+        <p>Apply each serum and wait 30-60 seconds before layering the next. Don't overload—2-3 serums max.</p>
+
+        <h3>Step 9: Eye Mask or Treatment (10-15 minutes)</h3>
+
+        <p>While your serums absorb, apply under-eye patches or a rich eye cream. Eye masks hydrate, depuff, and reduce dark circles. Leave on for 10-15 minutes, then gently pat in any remaining serum.</p>
+
+        <h3>Step 10: Rich Moisturizer or Night Cream (2 minutes)</h3>
+
+        <p>Seal everything in with a deeply nourishing moisturizer. Go richer than your usual formula—this is the time to really pamper your skin. Look for ceramides, peptides, and nourishing oils.</p>
+
+        <p>Apply generously to your face, neck, and décolletage using upward strokes. Take your time and massage it in—this is part of the self-care experience.</p>
+
+        <h3>Step 11: Facial Oil or Sleeping Mask (1 minute)</h3>
+
+        <p>Add one final layer of intense hydration. Choose either:</p>
+
+        <ul>
+            <li><strong>Facial oil:</strong> Rosehip, marula, or squalane for deep nourishment</li>
+            <li><strong>Sleeping mask:</strong> An occlusive treatment that locks in all the layers underneath</li>
+        </ul>
+
+        <p>Press gently into your skin and let it absorb while you continue your self-care evening.</p>
+
+        <h3>Step 12: Lip and Hand Treatment (2 minutes)</h3>
+
+        <p>Don't forget your lips and hands. Apply a thick lip mask or balm, and massage a rich hand cream into your hands and cuticles. Your entire self deserves care, not just your face.</p>
+
+        <h2>Total Time: 60-90 Minutes</h2>
+
+        <p>This isn't a quick routine—it's a ritual. Set aside an hour or more, put your phone away, and make it an experience. Light candles, play relaxing music, make your space feel like a spa.</p>
+
+        <h2>Variations for Different Skin Concerns</h2>
+
+        <h3>For Acne-Prone Skin</h3>
+        <p>Use a clay mask, salicylic acid treatment, and niacinamide serum. Skip heavy oils and use lightweight gel moisturizers. Consider a spot treatment on active breakouts.</p>
+
+        <h3>For Dry/Mature Skin</h3>
+        <p>Focus on hydration and anti-aging. Use a hydrating mask, retinol serum (if tolerated), peptide cream, and rich facial oil. Add an extra layer of sleeping mask.</p>
+
+        <h3>For Sensitive/Rosacea-Prone Skin</h3>
+        <p>Skip harsh exfoliation and extractions. Use a soothing mask with centella or aloe, gentle hydrating serums, and ceramide-rich moisturizer. Avoid hot water and rubbing.</p>
+
+        <h3>For Combination Skin</h3>
+        <p>Multi-mask: Apply a clay mask to your T-zone and a hydrating mask to your cheeks. This targets both oily and dry areas simultaneously.</p>
+
+        <h2>Additional Self-Care Add-Ons</h2>
+
+        <h3>Hair Mask</h3>
+        <p>While your face mask is on, apply a deep conditioning treatment to your hair. Rinse when you rinse your face mask for maximum efficiency.</p>
+
+        <h3>Body Scrub</h3>
+        <p>Exfoliate your body in the shower before starting your face routine. Use a sugar or salt scrub to smooth rough patches.</p>
+
+        <h3>Foot Mask or Treatment</h3>
+        <p>Apply a foot mask or thick balm to your feet, then put on cozy socks. Your feet need love too.</p>
+
+        <h3>Bath Soak</h3>
+        <p>If you have a bathtub, take a warm bath with Epsom salts, oils, or bath bombs. This is full-body relaxation.</p>
+
+        <h2>How Often to Do This Routine</h2>
+
+        <p>Once per week is ideal. Choose a consistent day—Friday or Sunday night works for most people—and make it your weekly ritual. Consistency is key for long-term results.</p>
+
+        <p>If your skin is sensitive or you're using strong actives, you might do this every other week instead. Listen to your skin.</p>
+
+        <h2>Product Recommendations</h2>
+
+        <ul>
+            <li><strong>Oil Cleanser:</strong> DHC Deep Cleansing Oil</li>
+            <li><strong>Exfoliant:</strong> Paula's Choice 8% AHA Gel</li>
+            <li><strong>Clay Mask:</strong> Aztec Secret Indian Healing Clay</li>
+            <li><strong>Hydrating Mask:</strong> Laneige Water Sleeping Mask</li>
+            <li><strong>Brightening Mask:</strong> Glow Recipe Watermelon Glow Sleeping Mask</li>
+            <li><strong>Facial Oil:</strong> Sunday Riley Luna Sleeping Night Oil</li>
+            <li><strong>Eye Patches:</strong> Peter Thomas Roth Water Drench Hyaluronic Cloud Hydra-Gel Eye Patches</li>
+            <li><strong>Night Cream:</strong> Olay Regenerist Night Recovery Cream</li>
+        </ul>
+
+        <h2>Making It a Full Experience</h2>
+
+        <h3>Set the Mood</h3>
+        <p>Dim the lights, light candles, play calming music (try lo-fi, classical, or nature sounds). Make your bathroom or bedroom feel like a spa.</p>
+
+        <h3>Wear Something Comfortable</h3>
+        <p>Put on a cozy robe, soft pajamas, or a headband to keep your hair back. Comfort is key.</p>
+
+        <h3>Make a Drink</h3>
+        <p>Herbal tea, lemon water, or even a glass of wine (if you're old enough). Sip while your masks work.</p>
+
+        <h3>Journal or Meditate</h3>
+        <p>While your treatment mask is on, write in a journal or do a short meditation. This is mental self-care alongside physical care.</p>
+
+        <h3>No Screens</h3>
+        <p>Put your phone on airplane mode or leave it in another room. This hour is for you—no scrolling, no notifications, no distractions.</p>
+
+        <h2>What to Expect</h2>
+
+        <p>After one session, you'll notice:</p>
+
+        <ul>
+            <li>Smoother, softer texture</li>
+            <li>Brighter, more radiant complexion</li>
+            <li>Deeply hydrated, plump skin</li>
+            <li>Reduced puffiness and tension</li>
+            <li>Mental clarity and relaxation</li>
+        </ul>
+
+        <p>After consistent weekly sessions (4-6 weeks), you'll see:</p>
+
+        <ul>
+            <li>Significantly improved texture and tone</li>
+            <li>Faded dark spots and hyperpigmentation</li>
+            <li>Reduced breakouts and clearer pores</li>
+            <li>Better moisture barrier and resilience</li>
+            <li>Overall healthier, glowing skin</li>
+        </ul>
+
+        <h2>The Bottom Line</h2>
+
+        <p>Your weekend self-care routine isn't just about skincare—it's about slowing down, being present, and taking care of yourself in a world that constantly demands your attention. It's about more than glowing skin (though that's a nice bonus). It's about making time for you.</p>
+
+        <p>Set aside one hour every week. Lock the door, light the candles, and give yourself the spa experience you deserve. Your skin will thank you. Your mind will thank you. And honestly, you'll look forward to it all week.</p>
+
+        <p>You deserve this. Take the time.</p>
+
+        <a href="index.html#routines" class="back-link">← Back to Routines</a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Lumora. All rights reserved. Made with love for beautiful skin.</p>
+        </div>
+    </footer>
+</body>
+</html>
